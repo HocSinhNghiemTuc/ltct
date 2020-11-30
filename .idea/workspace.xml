@@ -19,57 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e26e1b3-3341-4717-8f2b-4846d22b99a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/User/Config/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Config/config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Console/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Migrations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Migrations/2020_11_26_140152_create_roles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Migrations/2020_11_26_140216_create_permissions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Migrations/2020_11_26_140312_create_table_user_role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Migrations/2020_11_26_140351_create_table_permission_role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Seeders/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Seeders/CreateRoleSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/Seeders/UserDatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Database/factories/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Entities/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Http/Controllers/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Http/Middleware/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Http/Requests/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Providers/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Providers/UserServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/assets/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/assets/sass/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/lang/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/layouts/master.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/user/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/user/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Resources/views/user/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Routes/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Tests/Feature/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/Tests/Unit/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/module.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/User/webpack.mix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Traits/DeleteModelTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_30_104946_add_column_deleted_at_table_users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules_statuses.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules_statuses.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="8e26e1b3-3341-4717-8f2b-4846d22b99a7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -227,7 +177,7 @@
       <workItem from="1606703912711" duration="6805000" />
       <workItem from="1606721450037" duration="1907000" />
       <workItem from="1606726502943" duration="773000" />
-      <workItem from="1606727603752" duration="8770000" />
+      <workItem from="1606727603752" duration="9088000" />
     </task>
     <servers />
   </component>
