@@ -14,7 +14,7 @@
                             <a href="#">
                                 <div class="iframe-img">
                                     <img src="{{asset("eshopper/images/home/iframe1.png")}}" alt=""/>
-                                </div>
+                                </div>/ad
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
                                 </div>
@@ -133,12 +133,7 @@
                 <div class="col-sm-3 col-sm-offset-1">
                     <div class="single-widget">
                         <h2>About Shopper</h2>
-                        <form action="#" class="searchform">
-                            <input type="text" placeholder="Your email address"/>
-                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i>
-                            </button>
-                            <p>Get the most recent updates from <br/>our site and be updated your self...</p>
-                        </form>
+                        @include('contact::form_feedback')
                     </div>
                 </div>
 

@@ -5,15 +5,15 @@ function validateEmail(email) {
 function setVaild(ele, index = true) {
     if (index) {
         if (ele.val() == "") {
-            ele.removeClass('is-valid').addClass('is-invalid');
+            ele.parent().removeClass('has-success').addClass('has-error');
         } else {
-            ele.removeClass('is-invalid').addClass('is-valid')
+            ele.parent().removeClass('has-error').addClass('has-success')
         }
     } else {
         if (!validateEmail(ele.val())) {
-            ele.removeClass('is-valid').addClass('is-invalid');
+            ele.parent().removeClass('has-success').addClass('has-error');
         } else {
-            ele.removeClass('is-invalid').addClass('is-valid')
+            ele.parent().removeClass('has-error').addClass('has-success')
         }
     }
 }
