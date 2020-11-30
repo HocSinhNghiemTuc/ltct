@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-//    return view('welcome');
+Route::get('/', [
+    'as' => 'homepage',
+    'uses' => 'Home@index'
+]);
+
+
+Route::get('/admin', function () {
     return view('home');
 });

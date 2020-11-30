@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('feedback.index')}}" class="nav-link">
                                 <p style="padding-left: 2rem">Feedback</p>
                             </a>
                         </li>
@@ -51,6 +51,14 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Category
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('users.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            User
                         </p>
                     </a>
                 </li>
