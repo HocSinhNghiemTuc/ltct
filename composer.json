@@ -39,8 +39,7 @@
         },
         "classmap": [
             "database/seeds",
-            "database/factories",
-            "database/seeds/CreateRoleSeeder.php"
+            "database/factories"
         ]
     },
     "autoload-dev": {
