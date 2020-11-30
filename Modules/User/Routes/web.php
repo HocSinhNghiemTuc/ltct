@@ -11,11 +11,6 @@
 |
 */
 
-
-Route::get('/home', function () {
-    return view('home');
-});
-
 Route::prefix('admin')->group(function () {
     Route::prefix('users')->group(function () {
         Route::get('/', [
