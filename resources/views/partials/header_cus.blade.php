@@ -24,49 +24,47 @@
                                 <div class="row">
                                     <div class="col-menu col-md-3">
                                         <h6 class="title">Top</h6>
-                                        <div class="content">
                                             <ul class="menu-col">
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Jackets</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Shirts</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Sweaters & Cardigans</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">T-shirts</a></li>
                                             </ul>
-                                        </div>
                                     </div>
                                     <!-- end col-3 -->
                                     <div class="col-menu col-md-3">
                                         <h6 class="title">Bottom</h6>
-                                        <div class="content">
+{{--                                        <div class="content">--}}
                                             <ul class="menu-col">
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Swimwear</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Skirts</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Jeans</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Trousers</a></li>
                                             </ul>
-                                        </div>
+{{--                                        </div>--}}
                                     </div>
                                     <!-- end col-3 -->
                                     <div class="col-menu col-md-3">
                                         <h6 class="title">Clothing</h6>
-                                        <div class="content">
+{{--                                        <div class="content">--}}
                                             <ul class="menu-col">
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Top Wear</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Party wear</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Bottom Wear</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Indian Wear</a></li>
                                             </ul>
-                                        </div>
+{{--                                        </div>--}}
                                     </div>
                                     <div class="col-menu col-md-3">
                                         <h6 class="title">Accessories</h6>
-                                        <div class="content">
+{{--                                        <div class="content">--}}
                                             <ul class="menu-col">
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Bags</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Sunglasses</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Fragrances</a></li>
                                                 <li><a href="{{asset("thewayshop/shop.html")}}">Wallets</a></li>
                                             </ul>
-                                        </div>
+{{--                                        </div>--}}
                                     </div>
                                     <!-- end col-3 -->
                                 </div>
