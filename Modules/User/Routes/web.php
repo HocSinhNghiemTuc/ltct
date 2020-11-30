@@ -12,37 +12,36 @@
 */
 
 
-
 Route::get('/home', function () {
     return view('home');
 });
 
+Route::prefix('admin')->group(function () {
+    Route::prefix('users')->group(function () {
+        Route::get('/', [
+            'as' => 'users.index',
+            'uses' => 'AdminUserController@index'
+        ]);
 
-Route::prefix('users')->group(function () {
-    Route::get('/', [
-        'as' => 'users.index',
-        'uses' => 'AdminUserController@index'
-    ]);
+        Route::post('/store', [
+            'as' => 'users.store',
+            'uses' => 'AdminUserController@store'
+        ]);
 
-    Route::post('/store', [
-        'as' => 'users.store',
-        'uses' => 'AdminUserController@store'
-    ]);
+        Route::get('/edit/{id}', [
+            'as' => 'users.edit',
+            'uses' => 'AdminUserController@edit'
+        ]);
 
-    Route::get('/edit/{id}', [
-        'as' => 'users.edit',
-        'uses' => 'AdminUserController@edit'
-    ]);
-
-    Route::post('/update/{id}', [
-        'as' => 'users.update',
-        'uses' => 'AdminUserController@update'
-    ]);
-    Route::get('/delete/{id}', [
-        'as' => 'users.delete',
-        'uses' => 'AdminUserController@delete'
-    ]);
-
+        Route::post('/update/{id}', [
+            'as' => 'users.update',
+            'uses' => 'AdminUserController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as' => 'users.delete',
+            'uses' => 'AdminUserController@delete'
+        ]);
+    });
 });
 
 Route::prefix('userCreate')->group(function () {
