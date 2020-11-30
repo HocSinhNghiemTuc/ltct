@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('feedback.index')}}" class="nav-link">
                                 <p style="padding-left: 2rem">Feedback</p>
                             </a>
                         </li>
