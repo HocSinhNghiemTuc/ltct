@@ -47,11 +47,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('categories.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Danh muc san pham
-                            <span class="right badge badge-danger">New</span>
+                            Category
                         </p>
                     </a>
                 </li>
