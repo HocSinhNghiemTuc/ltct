@@ -26,5 +26,14 @@ class ContactDatabaseSeeder extends Seeder
             'icon'=>'fab fa-youtube',
             'color'=>'#FF0000'
         ]]);
+        DB::table('feedbacks')->insert([[
+            'email'=>'hieu.jno1@gmail.com',
+            'content'=>'Tôi cần chữ to hơn nữa',
+            'created_at'=> now()
+        ],[
+            'email'=>'hieu.jno1@gmail.com',
+            'content'=>'Tôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữaTôi cần chữ to hơn nữa',
+            'created_at'=> now()
+        ]]);
     }
 }

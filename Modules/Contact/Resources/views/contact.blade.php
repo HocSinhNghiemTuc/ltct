@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{asset('modules/contact/css/app.css')}}">
 @endsection
 @section('js')
-    <script type="text/javascript" src="{{ asset('modules/contact/js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('modules/contact/js/contact.js') }}"></script>
 @endsection
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
