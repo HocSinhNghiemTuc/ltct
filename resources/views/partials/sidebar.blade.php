@@ -35,7 +35,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('contact.index')}}" class="nav-link active">
+                            <a href="{{route('contact.index')}}" class="nav-link">
                                 <p style="padding-left: 2rem">Contact</p>
                             </a>
                         </li>
@@ -60,7 +60,7 @@
                     <p>
                         User
                     </p>
-                    </a>
+
                 </li>
                 <li class="nav-item">
                     {{--                    <a href="{{route('slider.index')}}" class="nav-link">--}}
@@ -68,7 +68,7 @@
                     <p>
                         Slider
                     </p>
-                    </a>
+
                 </li>
             </ul>
         </nav>

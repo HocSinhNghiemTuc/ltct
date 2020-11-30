@@ -13,6 +13,7 @@
     <link href="{{asset("eshopper/css/animate.css")}}" rel="stylesheet">
     <link href="{{asset("eshopper/css/main.css")}}" rel="stylesheet">
     <link href="{{asset("eshopper/css/responsive.css")}}" rel="stylesheet">
+    @yield('css')
 <!--[if lt IE 9]>
     <script src="{{asset("eshopper/js/html5shiv.js")}}"></script>
     <script src="{{asset("eshopper/js/respond.min.js")}}"></script>
@@ -667,5 +668,6 @@
 <script src="{{asset("eshopper/js/price-range.js")}}"></script>
 <script src="{{asset("eshopper/js/jquery.prettyPhoto.js")}}"></script>
 <script src="{{asset("eshopper/js/main.js")}}"></script>
+@yield('js')
 </body>
 </html>
