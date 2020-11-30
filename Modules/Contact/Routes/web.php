@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::prefix('admin')->group(function (){
     Route::prefix('contact')->group(function (){
         Route::get('/index',[
