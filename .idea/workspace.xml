@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="3d98588f-201b-4cb4-a442-e1a5c5f16fc8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_30_104946_add_column_deleted_at_table_users.php" beforeDir="false" />
@@ -28,6 +29,11 @@
 =======
     <list default="true" id="3d98588f-201b-4cb4-a442-e1a5c5f16fc8" name="Default Changelist" comment="" />
 >>>>>>> da2171f2b4969f0b3752ba7060c7d3e70545ecd6
+=======
+    <list default="true" id="3d98588f-201b-4cb4-a442-e1a5c5f16fc8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> f91ce351e78b7c98baeae93d1e2b244630540e71
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +187,7 @@
       <workItem from="1606726502943" duration="773000" />
       <workItem from="1606727603752" duration="9088000" />
       <workItem from="1606750801249" duration="1036000" />
-      <workItem from="1606753031410" duration="1774000" />
+      <workItem from="1606753031410" duration="2399000" />
     </task>
     <servers />
   </component>
