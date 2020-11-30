@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e26e1b3-3341-4717-8f2b-4846d22b99a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Database/Seeders/ContactDatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Database/Seeders/ContactDatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Entities/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Entities/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Entities/Feedback.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Http/Controllers/AdminFeedbackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Http/Controllers/AdminFeedbackController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Resources/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Resources/assets/css/contact.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Resources/assets/js/contact.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Contact/Resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Resources/views/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Resources/views/feedback.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Resources/views/feedback.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/modules/contact/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/modules/contact/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +144,7 @@
       <updated>1606703877059</updated>
       <workItem from="1606703882518" duration="12000" />
       <workItem from="1606703912711" duration="6805000" />
-      <workItem from="1606721450037" duration="7591000" />
+      <workItem from="1606721450037" duration="7802000" />
     </task>
     <servers />
   </component>
@@ -188,9 +176,9 @@
       <screen x="56" y="27" width="1310" height="741" />
     </state>
     <state width="1256" height="169" key="GridCell.Tab.0.right/56.27.1310.741@56.27.1310.741" timestamp="1606710950289" />
-    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606728722307">
+    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606729244170">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
-    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1310.741@56.27.1310.741" timestamp="1606728722307" />
+    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1310.741@56.27.1310.741" timestamp="1606729244170" />
   </component>
 </project>

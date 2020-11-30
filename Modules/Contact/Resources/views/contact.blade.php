@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('css')
-    <link rel="stylesheet" href="{{asset('modules/contact/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('modules/contact/css/contact.css')}}">
 @endsection
 @section('js')
     <script type="text/javascript" src="{{ asset('modules/contact/js/contact.js') }}"></script>
