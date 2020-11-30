@@ -8,7 +8,7 @@ use Modules\Contact\Entities\Contact;
 class Home extends Controller
 {
     public function index(){
-        $contacts = Contact::all();
+        $contacts = Contact::all()->where('status',true);
         return view('customer.index',compact('contacts'));
     }
 }

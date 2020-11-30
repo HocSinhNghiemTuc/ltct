@@ -8,6 +8,11 @@
     <title>Home | E-Shopper</title>
     <link href="{{asset("eshopper/css/bootstrap.min.css")}}" rel="stylesheet">
     <link href="{{asset("eshopper/css/font-awesome.min.css")}}" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+
     <link href="{{asset("eshopper/css/prettyPhoto.css")}}" rel="stylesheet">
     <link href="{{asset("eshopper/css/price-range.css")}}" rel="stylesheet">
     <link href="{{asset("eshopper/css/animate.css")}}" rel="stylesheet">
@@ -407,6 +412,8 @@
 <script src="{{asset("eshopper/js/price-range.js")}}"></script>
 <script src="{{asset("eshopper/js/jquery.prettyPhoto.js")}}"></script>
 <script src="{{asset("eshopper/js/main.js")}}"></script>
+
+<script src="{{asset("modules/contact/js/form_feedback.js")}}"></script>
 @yield('js')
 </body>
 </html>
