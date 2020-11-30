@@ -1,5 +1,9 @@
 {
     "Contact": true,
     "Category": true,
+<<<<<<< HEAD
+    "Slider": true
+=======
     "User": true
+>>>>>>> 3f3e8d9708082aab51d2f705ea43a876bff40a6f
 }

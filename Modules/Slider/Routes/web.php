@@ -12,36 +12,35 @@
 */
 
 Route::prefix('admin')->group(function () {
-    Route::prefix('categories')->group(function () {
+    Route::prefix('slider')->group(function() {
         Route::get('/', [
-            'as' => 'categories.index',
-            'uses' => 'CategoryController@index'
+            'as' => 'slider.index',
+            'uses' => 'SliderAdminController@index'
         ]);
 
         Route::get('/create', [
-            'as' => 'categories.create',
-            'uses' => 'CategoryController@create'
+            'as' => 'slider.create',
+            'uses' => 'SliderAdminController@create'
         ]);
+
         Route::post('/store', [
-            'as' => 'categories.store',
-            'uses' => 'CategoryController@store'
+            'as' => 'slider.store',
+            'uses' => 'SliderAdminController@store'
         ]);
 
         Route::get('/edit/{id}', [
-            'as' => 'categories.edit',
-            'uses' => 'CategoryController@edit'
+            'as' => 'slider.edit',
+            'uses' => 'SliderAdminController@edit'
         ]);
 
         Route::post('/update/{id}', [
-            'as' => 'categories.update',
-            'uses' => 'CategoryController@update'
+            'as' => 'slider.update',
+            'uses' => 'SliderAdminController@update'
         ]);
 
         Route::get('/delete/{id}', [
-            'as' => 'categories.delete',
-            'uses' => 'CategoryController@delete'
+            'as' => 'slider.delete',
+            'uses' => 'SliderAdminController@delete'
         ]);
-
     });
-
 });
