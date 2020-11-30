@@ -7,13 +7,13 @@
         <title>Module Category</title>
 
        {{-- Laravel Mix - CSS File --}}
-       {{-- <link rel="stylesheet" href="{{ mix('css/category.css') }}"> --}}
+       {{-- <link rel="stylesheet" href="{{ mix('css/sidebar.css') }}"> --}}
 
     </head>
     <body>
         @yield('content')
 
         {{-- Laravel Mix - JS File --}}
-        {{-- <script src="{{ mix('js/category.js') }}"></script> --}}
+        {{-- <script src="{{ mix('js/sidebar.js') }}"></script> --}}
     </body>
 </html>
