@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8e26e1b3-3341-4717-8f2b-4846d22b99a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -11,9 +29,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,10 +131,11 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
@@ -129,6 +146,9 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\shopping_test\ltct\Modules\User\Database\Seeders" />
+      <recent name="C:\xampp\htdocs\shopping_test\ltct\Modules\User\Resources\views" />
+      <recent name="C:\xampp\htdocs\shopping_test\ltct\vendor" />
       <recent name="$PROJECT_DIR$/Modules/Contact/Resources/views" />
     </key>
   </component>
@@ -150,19 +170,44 @@
       <updated>1606703877059</updated>
       <workItem from="1606703882518" duration="12000" />
       <workItem from="1606703912711" duration="6805000" />
+
       <workItem from="1606721450037" duration="14279000" />
+
+      <workItem from="1606721450037" duration="1907000" />
+      <workItem from="1606726502943" duration="773000" />
+      <workItem from="1606727603752" duration="9088000" />
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="439" y="194" width="534" height="413" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606729672537">
-      <screen x="56" y="27" width="1310" height="741" />
+
+    <state x="329" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606729670343">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="439" y="194" width="534" height="413" key="#com.intellij.fileTypes.FileTypeChooser/56.27.1310.741@56.27.1310.741" timestamp="1606729672537" />
-    <state x="444" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606733653724">
+    <state x="329" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1606729670343" />
+    <state x="506" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606735054806">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="506" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1606735054806" />
+    <state x="444" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606710900126">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
     <state x="444" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/56.27.1310.741@56.27.1310.741" timestamp="1606733653724" />
@@ -170,25 +215,30 @@
       <screen x="56" y="27" width="1310" height="741" />
     </state>
     <state x="266" y="156" width="880" height="490" key="EditFileWatcherDialog/56.27.1310.741@56.27.1310.741" timestamp="1606705464447" />
-    <state width="1256" height="169" key="GridCell.Tab.0.bottom" timestamp="1606710950289">
-      <screen x="56" y="27" width="1310" height="741" />
+    <state width="1493" height="262" key="GridCell.Tab.0.bottom" timestamp="1606727277355">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="262" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606727277355" />
     <state width="1256" height="169" key="GridCell.Tab.0.bottom/56.27.1310.741@56.27.1310.741" timestamp="1606710950289" />
-    <state width="1256" height="169" key="GridCell.Tab.0.center" timestamp="1606710950288">
-      <screen x="56" y="27" width="1310" height="741" />
+    <state width="1493" height="262" key="GridCell.Tab.0.center" timestamp="1606727277355">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="262" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606727277355" />
     <state width="1256" height="169" key="GridCell.Tab.0.center/56.27.1310.741@56.27.1310.741" timestamp="1606710950288" />
-    <state width="1256" height="169" key="GridCell.Tab.0.left" timestamp="1606710950288">
-      <screen x="56" y="27" width="1310" height="741" />
+    <state width="1493" height="262" key="GridCell.Tab.0.left" timestamp="1606727277355">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="262" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606727277355" />
     <state width="1256" height="169" key="GridCell.Tab.0.left/56.27.1310.741@56.27.1310.741" timestamp="1606710950288" />
-    <state width="1256" height="169" key="GridCell.Tab.0.right" timestamp="1606710950289">
-      <screen x="56" y="27" width="1310" height="741" />
+    <state width="1493" height="262" key="GridCell.Tab.0.right" timestamp="1606727277355">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="262" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606727277355" />
     <state width="1256" height="169" key="GridCell.Tab.0.right/56.27.1310.741@56.27.1310.741" timestamp="1606710950289" />
-    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606733861595">
-      <screen x="56" y="27" width="1310" height="741" />
+    <state x="374" y="69" width="788" height="754" key="search.everywhere.popup" timestamp="1606734159949">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1310.741@56.27.1310.741" timestamp="1606733861595" />
+    <state x="374" y="69" width="788" height="754" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606734159949" />
+    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1310.741@56.27.1310.741" timestamp="1606710768669" />
   </component>
 </project>
