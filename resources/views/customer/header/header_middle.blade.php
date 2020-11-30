@@ -37,7 +37,8 @@
                         <li><a href="{{asset("eshopper/checkout.html")}}"><i class="fa fa-crosshairs"></i> Checkout</a>
                         </li>
                         <li><a href="{{asset("eshopper/cart.html")}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                        <li><a href="{{asset("eshopper/login.html")}}"><i class="fa fa-lock"></i> Login</a></li>
+                        <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+                        <li><a href="/signup"><i "></i> SignUp</a></li>
                     </ul>
                 </div>
             </div>
