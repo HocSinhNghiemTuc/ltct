@@ -117,7 +117,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="contact-admin contact-from-{{$contact['id']}}">
+
                                             <div class="form-group">
                                                 <label>Contact name</label>
                                                 <input type="text" class="form-control contact-name-{{$contact['id']}}"
@@ -156,14 +156,14 @@
                                                        style="color: {{$contact['color']}}"></i>
                                                 </div>
                                             </div>
-                                        </form>
+
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary button-contact-save"
-                                                data-value="{{$contact['id']}}">Save changes
-                                        </button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
-                                        </button>
+                                        <input type="button" class="btn btn-primary button-contact-save"
+                                                data-value="{{$contact['id']}}" value="Save changes">
+
+                                        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Close">
+
                                     </div>
                                 </div>
                             </div>

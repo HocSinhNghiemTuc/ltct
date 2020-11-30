@@ -11,7 +11,7 @@ class AdminContactController extends Controller
 {
     public function index(){
         $contacts = Contact::all();
-        return view('contact::index', compact('contacts'));
+        return view('contact::contact', compact('contacts'));
     }
     public function create(Request $request){
         $params = array('id'=> $request['id'],

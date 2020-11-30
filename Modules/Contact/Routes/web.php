@@ -33,4 +33,14 @@ Route::prefix('admin')->group(function (){
             'uses'=>'AdminContactController@state'
         ]);
     });
+    Route::prefix('feedback')->group(function (){
+        Route::get('/index',[
+            'as'=>'feedback.index',
+            'uses'=>'AdminFeedbackController@index'
+        ]);
+        Route::post('/solved/{id}',[
+            'as'=>'feedback.state',
+            'uses'=>'AdminFeedbackController@solved'
+        ]);
+    });
 });
