@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $(".buton-solved").click(function () {
         let index = $(this).data('value');
@@ -13,5 +14,6 @@ $(document).ready(function () {
                 }
             });
         }
-    })
+    });
+
 });
