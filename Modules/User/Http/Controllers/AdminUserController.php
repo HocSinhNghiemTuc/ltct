@@ -12,11 +12,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use PHPUnit\Exception;
 use Illuminate\Support\Facades\DB;
+
 class AdminUserController extends Controller
 {
     use DeleteModelTrait;
+
     private $user;
     private $role;
+
     public function __construct(User $user, Role $role)
     {
         $this->user = $user;

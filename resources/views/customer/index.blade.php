@@ -13,9 +13,9 @@
     <link href="{{asset("eshopper/css/animate.css")}}" rel="stylesheet">
     <link href="{{asset("eshopper/css/main.css")}}" rel="stylesheet">
     <link href="{{asset("eshopper/css/responsive.css")}}" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
+<!--[if lt IE 9]>
+    <script src="{{asset("eshopper/js/html5shiv.js")}}"></script>
+    <script src="{{asset("eshopper/js/respond.min.js")}}"></script>
     <![endif]-->
     <link rel="shortcut icon" href="{{asset("eshopper/images/ico/favicon.ico")}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
