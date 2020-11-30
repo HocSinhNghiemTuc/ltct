@@ -25,6 +25,7 @@ $(document).ready(function () {
         let name = $('.contact-name-' + index);
         let link = $('.contact-link-' + index);
         let icon = $('.contact-icon-' + index);
+        let color = $('.contact-color-' + index);
         if (name.val() != "" && validURL(link.val()) && icon.val() != "") {
             $.ajax({
                 headers: {
@@ -36,7 +37,7 @@ $(document).ready(function () {
                     'contact_name': name.val(),
                     'contact_value': link.val(),
                     'contact_icon': icon.val(),
-                    'contact_color': $('.contact-icon-' + index).val()
+                    'contact_color': color.val()
                 },
                 success: function (data) {
                     window.location.href = '/admin/contact/index/?'+index;

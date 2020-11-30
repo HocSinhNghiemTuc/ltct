@@ -1,4 +1,10 @@
 @extends('layouts.admin')
+@section('css')
+    <link rel="stylesheet" href="{{asset('modules/contact/css/app.css')}}">
+@endsection
+@section('js')
+    <script type="text/javascript" src="{{ asset('modules/contact/js/app.js') }}"></script>
+@endsection
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="content-wrapper">
@@ -117,53 +123,50 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="contact-admin contact-from-{{$contact['id']}}">
-                                            <div class="form-group">
-                                                <label>Contact name</label>
-                                                <input type="text" class="form-control contact-name-{{$contact['id']}}"
-                                                       value="{{$contact['contact_name']}}" name="contact_name">
-                                                {{--                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Contact link</label>
-                                                <textarea class="form-control contact-link-{{$contact['id']}}"
-                                                          name="contact_value">{{$contact['contact_value']}}</textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-row">
-                                                    <div class="form-group col-8">
-                                                        <div class="form-inline" style="margin-bottom: 1rem;">
-                                                            <label class="col-2 col-form-label">Icon</label>
-                                                            <input type="text"
-                                                                   class="offset-1 col-7 form-control contact-icon contact-icon-{{$contact['id']}}"
-                                                                   data-value="{{$contact['id']}}"
-                                                                   value="{{$contact['icon']}}" name="contact_icon">
-                                                            <small class="offset-3">
-                                                                Get from <a class="link-font"
-                                                                            href="https://fontawesome.com/">fontawesome.com</a>
-                                                            </small>
-                                                        </div>
-                                                        <div class="form-inline">
-                                                            <label class="col-2 col-form-label">Color</label>
-                                                            <input type="color"
-                                                                   class="offset-1 contact-color contact-color-{{$contact['id']}}"
-                                                                   value="{{$contact['color']}}"
-                                                                   data-value="{{$contact['id']}}" name="contact_color">
-                                                        </div>
+                                        <div class="form-group">
+                                            <label>Contact name</label>
+                                            <input type="text" class="form-control contact-name-{{$contact['id']}}"
+                                                   value="{{$contact['contact_name']}}" name="contact_name">
+                                            {{--                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Contact link</label>
+                                            <textarea class="form-control contact-link-{{$contact['id']}}"
+                                                      name="contact_value">{{$contact['contact_value']}}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-row">
+                                                <div class="form-group col-8">
+                                                    <div class="form-inline" style="margin-bottom: 1rem;">
+                                                        <label class="col-2 col-form-label">Icon</label>
+                                                        <input type="text"
+                                                               class="offset-1 col-7 form-control contact-icon contact-icon-{{$contact['id']}}"
+                                                               data-value="{{$contact['id']}}"
+                                                               value="{{$contact['icon']}}" name="contact_icon">
+                                                        <small class="offset-3">
+                                                            Get from <a class="link-font"
+                                                                        href="https://fontawesome.com/">fontawesome.com</a>
+                                                        </small>
                                                     </div>
-                                                    <i id="contact-icon-{{$contact['id']}}"
-                                                       class="offset-1 {{$contact['icon']}} fa-5x"
-                                                       style="color: {{$contact['color']}}"></i>
+                                                    <div class="form-inline">
+                                                        <label class="col-2 col-form-label">Color</label>
+                                                        <input type="color"
+                                                               class="offset-1 contact-color contact-color-{{$contact['id']}}"
+                                                               value="{{$contact['color']}}"
+                                                               data-value="{{$contact['id']}}" name="contact_color">
+                                                    </div>
                                                 </div>
+                                                <i id="contact-icon-{{$contact['id']}}"
+                                                   class="offset-1 {{$contact['icon']}} fa-5x"
+                                                   style="color: {{$contact['color']}}"></i>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary button-contact-save"
-                                                data-value="{{$contact['id']}}">Save changes
-                                        </button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
-                                        </button>
+                                        <input type="button" class="btn btn-primary button-contact-save"
+                                               data-value="{{$contact['id']}}" value="Save changes">
+                                        <input type="button" class="btn btn-secondary" data-dismiss="modal"
+                                               value="Close">
                                     </div>
                                 </div>
                             </div>

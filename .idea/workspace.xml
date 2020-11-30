@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e26e1b3-3341-4717-8f2b-4846d22b99a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Contact/Resources/views/cus_index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Contact/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Contact/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="8e26e1b3-3341-4717-8f2b-4846d22b99a7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,6 +119,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules/Contact/Resources/views" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -141,7 +141,8 @@
       <option name="presentableId" value="Default" />
       <updated>1606703877059</updated>
       <workItem from="1606703882518" duration="12000" />
-      <workItem from="1606703912711" duration="6052000" />
+      <workItem from="1606703912711" duration="6805000" />
+      <workItem from="1606721450037" duration="1907000" />
     </task>
     <servers />
   </component>
@@ -149,29 +150,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="444" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606710900126">
+      <screen x="56" y="27" width="1310" height="741" />
+    </state>
+    <state x="444" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/56.27.1310.741@56.27.1310.741" timestamp="1606710900126" />
     <state x="266" y="156" width="880" height="490" key="EditFileWatcherDialog" timestamp="1606705464447">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
     <state x="266" y="156" width="880" height="490" key="EditFileWatcherDialog/56.27.1310.741@56.27.1310.741" timestamp="1606705464447" />
-    <state width="1256" height="169" key="GridCell.Tab.0.bottom" timestamp="1606703970560">
+    <state width="1256" height="169" key="GridCell.Tab.0.bottom" timestamp="1606710950289">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
-    <state width="1256" height="169" key="GridCell.Tab.0.bottom/56.27.1310.741@56.27.1310.741" timestamp="1606703970560" />
-    <state width="1256" height="169" key="GridCell.Tab.0.center" timestamp="1606703970560">
+    <state width="1256" height="169" key="GridCell.Tab.0.bottom/56.27.1310.741@56.27.1310.741" timestamp="1606710950289" />
+    <state width="1256" height="169" key="GridCell.Tab.0.center" timestamp="1606710950288">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
-    <state width="1256" height="169" key="GridCell.Tab.0.center/56.27.1310.741@56.27.1310.741" timestamp="1606703970560" />
-    <state width="1256" height="169" key="GridCell.Tab.0.left" timestamp="1606703970559">
+    <state width="1256" height="169" key="GridCell.Tab.0.center/56.27.1310.741@56.27.1310.741" timestamp="1606710950288" />
+    <state width="1256" height="169" key="GridCell.Tab.0.left" timestamp="1606710950288">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
-    <state width="1256" height="169" key="GridCell.Tab.0.left/56.27.1310.741@56.27.1310.741" timestamp="1606703970559" />
-    <state width="1256" height="169" key="GridCell.Tab.0.right" timestamp="1606703970560">
+    <state width="1256" height="169" key="GridCell.Tab.0.left/56.27.1310.741@56.27.1310.741" timestamp="1606710950288" />
+    <state width="1256" height="169" key="GridCell.Tab.0.right" timestamp="1606710950289">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
-    <state width="1256" height="169" key="GridCell.Tab.0.right/56.27.1310.741@56.27.1310.741" timestamp="1606703970560" />
-    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606710172052">
+    <state width="1256" height="169" key="GridCell.Tab.0.right/56.27.1310.741@56.27.1310.741" timestamp="1606710950289" />
+    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606710768669">
       <screen x="56" y="27" width="1310" height="741" />
     </state>
-    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1310.741@56.27.1310.741" timestamp="1606710172052" />
+    <state x="374" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1310.741@56.27.1310.741" timestamp="1606710768669" />
   </component>
 </project>
