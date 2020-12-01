@@ -40,7 +40,7 @@
                     <a href="{{route('slider.edit', ['id' => $slider->id])}}" 
                       class="btn btn-default">Edit</a>
                     <a href="{{route('slider.delete', ['id' => $slider->id])}}" 
-                      class="btn btn-danger">Delete</a>
+                      class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                   </td>
                 </tr>
               @endforeach
@@ -60,4 +60,3 @@
   </div>
   <!-- /.content-wrapper -->
 @endsection
-
