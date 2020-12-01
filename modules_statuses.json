@@ -2,5 +2,6 @@
     "Contact": true,
     "Category": true,
     "Slider": true,
-    "User": true
+    "User": true,
+    "Blog": true
 }
