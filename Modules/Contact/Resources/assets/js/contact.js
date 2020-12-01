@@ -11,7 +11,7 @@ function setVaild(ele, index = true) {
             ele.removeClass('is-invalid').addClass('is-valid')
         }
     } else {
-        if (!validURL(ele.val())) {
+        if (ele.val() == "") {
             ele.removeClass('is-valid').addClass('is-invalid');
         } else {
             ele.removeClass('is-invalid').addClass('is-valid')
@@ -26,7 +26,7 @@ $(document).ready(function () {
         let link = $('.contact-link-' + index);
         let icon = $('.contact-icon-' + index);
         let color = $('.contact-color-' + index);
-        if (name.val() != "" && validURL(link.val()) && icon.val() != "") {
+        if (name.val() != "" && link.val() != "" && icon.val() != "") {
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -45,7 +45,7 @@ $(document).ready(function () {
             })
         } else {
             setVaild(name);
-            setVaild(link, false);
+            setVaild(link);
             setVaild(icon);
         }
     });
@@ -53,11 +53,11 @@ $(document).ready(function () {
         let link = $('.contact-link-new');
         let name = $('.contact-name-new');
         let icon = $('.contact-icon-new');
-        if (name.val() != "" && validURL(link.val()) && icon.val() != "") {
+        if (name.val() != "" && link.val() != "" && icon.val() != "") {
             $('form.contact-from-new').submit();
         } else {
             setVaild(name);
-            setVaild(link, false);
+            setVaild(link);
             setVaild(icon);
         }
     });
