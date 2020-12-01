@@ -14,6 +14,6 @@
         @yield('content')
 
         {{-- Laravel Mix - JS File --}}
-        {{-- <script src="{{ mix('js/contact.js') }}"></script> --}}
+        {{-- <script src="{{ mix('js/payment.js') }}"></script> --}}
     </body>
 </html>

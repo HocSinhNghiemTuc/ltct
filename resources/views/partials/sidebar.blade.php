@@ -71,6 +71,27 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Order
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <p style="padding-left: 2rem">Order</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('payment.index')}}" class="nav-link">
+                                <p style="padding-left: 2rem">Payment method</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

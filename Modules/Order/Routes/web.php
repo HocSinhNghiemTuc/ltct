@@ -11,6 +11,28 @@
 |
 */
 
-Route::prefix('order')->group(function() {
-    Route::get('/', 'OrderController@index');
+Route::prefix('admin')->group(function (){
+    Route::prefix('payment')->group(function (){
+        Route::get('/index',[
+            'as'=>'payment.index',
+            'uses'=>'AdminPaymentsController@index'
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'payment.update',
+            'uses'=>'AdminPaymentsController@update'
+        ]);
+        Route::post('/create',[
+            'as'=>'payment.create',
+            'uses'=>'AdminPaymentsController@create'
+        ]);
+        Route::delete('/delete/{id}',[
+            'as'=>'payment.delete',
+            'uses'=>'AdminPaymentsController@delete'
+        ]);
+        Route::post('/state/{id}',[
+            'as'=>'payment.state',
+            'uses'=>'AdminPaymentsController@state'
+        ]);
+    });
 });
+

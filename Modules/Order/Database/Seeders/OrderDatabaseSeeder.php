@@ -4,6 +4,7 @@ namespace Modules\Order\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class OrderDatabaseSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class OrderDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
+
 
         // $this->call("OthersTableSeeder");
     }
