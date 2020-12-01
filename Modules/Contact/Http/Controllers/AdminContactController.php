@@ -27,6 +27,11 @@ class AdminContactController extends Controller
         $contact['status'] = !$contact['status'];
         $contact->save();
     }
+    public function show(Request $request){
+        $contact = Contact::find($request['id']);
+        $contact['show?'] = !$contact['show?'];
+        $contact->save();
+    }
     public function delete(Request $request){
         $contact = Contact::find($request['id']);
         $contact->delete();

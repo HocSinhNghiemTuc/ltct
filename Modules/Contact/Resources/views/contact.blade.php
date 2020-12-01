@@ -89,6 +89,7 @@
                         <th scope="col">Contact Link</th>
                         <th scope="col">Icon</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Show all</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -110,6 +111,13 @@
                                 </button>
                                 <button class="btn btn-danger contact-delete" data-value="{{$contact['id']}}">Delete
                                 </button>
+                            </td>
+                            <td>
+                                <label class="switch">
+                                    <input type="checkbox" class="contact-show"
+                                           data-value="{{$contact['id']}}" {{$contact['show?'] == true ? 'checked': ''}}>
+                                    <span class="slider round"></span>
+                                </label>
                             </td>
                         </tr>
                         <div class="modal fade" id="contact{{$contact['id']}}" tabindex="-1" role="dialog"

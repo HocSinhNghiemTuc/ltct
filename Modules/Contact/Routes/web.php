@@ -38,6 +38,10 @@ Route::prefix('admin')->group(function (){
             'as'=>'contact.state',
             'uses'=>'AdminContactController@state'
         ]);
+        Route::post('/show/{id}',[
+            'as'=>'contact.show',
+            'uses'=>'AdminContactController@show'
+        ]);
     });
     Route::prefix('feedback')->group(function (){
         Route::get('/index',[

@@ -71,6 +71,16 @@ $(document).ready(function () {
             method: 'post'
         })
     });
+    $('.contact-show').change(function () {
+        let index = $(this).data('value');
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/admin/contact/show/' + index,
+            method: 'post'
+        })
+    });
     $('.contact-icon-new').keyup(function () {
         let icon = $(this).val();
         let color = $('.contact-color-new').val();
