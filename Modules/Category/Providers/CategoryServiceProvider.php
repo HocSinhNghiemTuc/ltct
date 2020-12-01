@@ -15,7 +15,7 @@ class CategoryServiceProvider extends ServiceProvider
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'sidebar';
+    protected $moduleNameLower = 'category';
 
     /**
      * Boot the application events.
