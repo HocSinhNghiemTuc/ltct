@@ -16,7 +16,11 @@ class OrderDatabaseSeeder extends Seeder
     public function run()
     {
 
-
+        DB::table('contacts')->insert([
+            ['state_name'=>'Cho thanh toan'],
+            ['state_name'=>'Da thanh toan'],
+            ['state_name'=>'Huy don']
+        ]);
         // $this->call("OthersTableSeeder");
     }
 }
