@@ -34,5 +34,20 @@ Route::prefix('admin')->group(function (){
             'uses'=>'AdminPaymentsController@state'
         ]);
     });
+    Route::prefix('carts')->group(function (){
+        Route::get('/index',[
+            'as'=>'admin_cart.index',
+            'uses'=>'AdminCartsController@index'
+        ]);
+    });
 });
-
+Route::prefix('carts')->group(function (){
+    Route::post('/add_product/{id}',[
+        'as'=>'cart.add_product',
+        'uses'=>'CartsController@add_product'
+    ]);
+    Route::get('/index',[
+        'as'=>'cart.index',
+        'uses'=>'CartsController@index'
+    ]);
+});

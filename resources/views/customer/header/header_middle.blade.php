@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4 clearfix">
                 <div class="logo pull-left">
-                    <a href="{{asset("eshopper/index.html")}}"><img src="{{asset("eshopper/images/home/logo.png")}}" alt=""/></a>
+                    <a href="{{route('homepage')}}"><img src="{{asset("eshopper/images/home/logo.png")}}" alt=""/></a>
                 </div>
                 <div class="btn-group pull-right clearfix">
                     <div class="btn-group">
@@ -36,9 +36,9 @@
                         <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
                         <li><a href="{{asset("eshopper/checkout.html")}}"><i class="fa fa-crosshairs"></i> Checkout</a>
                         </li>
-                        <li><a href="{{asset("eshopper/cart.html")}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                        <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                         <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
-                        <li><a href="/signup"><i "></i> SignUp</a></li>
+                        <li><a href="/signup"><i></i> SignUp</a></li>
                     </ul>
                 </div>
             </div>
