@@ -4,5 +4,6 @@
     "Slider": true,
     "User": true,
     "Blog": true,
-    "Order": true
+    "Order": true,
+    "Product": true
 }
