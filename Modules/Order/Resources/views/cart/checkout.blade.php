@@ -1,13 +1,48 @@
 @extends('customer.order.index')
+@section('js')
+    <script type="text/javascript" src="{{ asset('modules/order/js/checkout.js') }}"></script>
+@endsection
 @section('content')
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li class="active">Shopping Cart</li>
+                    <li class="active">Check out</li>
                 </ol>
             </div>
+
+            <div class="shopper-informations">
+                <div class="row">
+                    <div class="col-sm-6 clearfix">
+                        <div class="bill-to">
+                            <p>Shipping Infomation</p>
+                            <div class="shopper-info">
+                                <form>
+                                    <input type="text" placeholder="Name*">
+                                    <input type="text" placeholder="Email*">
+                                    <input type="text" placeholder="Phone*">
+                                    <input type="text" placeholder="Province*">
+                                    <input type="text" placeholder="District*">
+                                    <input type="text" placeholder="Sub-District*">
+                                    <input type="text" placeholder="Address*">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="order-message">
+                            <p>Shipping Note</p>
+                            <textarea name="message" placeholder="Notes about your order, Special Notes for Delivery"
+                                      rows="16"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-payment">
+                <h2>Review</h2>
+            </div>
+
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
@@ -23,7 +58,7 @@
                     <tbody>
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="images/cart/one.png" alt=""></a>
+                            <a href=""><img src="{{asset("eshopper/images/cart/one.png")}}" alt=""></a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">Colorblock Scuba</a></h4>
@@ -35,7 +70,8 @@
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                 <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                <input class="cart_quantity_input" type="text" name="quantity" value="1"
+                                       autocomplete="off" size="2">
                                 <a class="cart_quantity_down" href=""> - </a>
                             </div>
                         </td>
@@ -49,7 +85,8 @@
 
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="images/cart/two.png" alt=""></a>
+                            <a href=""><img src="{{asset("eshopper/images/cart/two.png")}}" alt="">
+                            </a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">Colorblock Scuba</a></h4>
@@ -61,7 +98,8 @@
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                 <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                <input class="cart_quantity_input" type="text" name="quantity" value="1"
+                                       autocomplete="off" size="2">
                                 <a class="cart_quantity_down" href=""> - </a>
                             </div>
                         </td>
@@ -74,7 +112,7 @@
                     </tr>
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="images/cart/three.png" alt=""></a>
+                            <a href=""><img src="{{asset("eshopper/images/cart/three.png")}}" alt=""></a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">Colorblock Scuba</a></h4>
@@ -86,7 +124,8 @@
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                 <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                <input class="cart_quantity_input" type="text" name="quantity" value="1"
+                                       autocomplete="off" size="2">
                                 <a class="cart_quantity_down" href=""> - </a>
                             </div>
                         </td>
@@ -95,85 +134,39 @@
                         </td>
                         <td class="cart_delete">
                             <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">&nbsp;</td>
+                        <td colspan="2">
+                            <table class="table table-condensed total-result">
+                                <tr>
+                                    <td>Cart Sub Total</td>
+                                    <td>$59</td>
+                                </tr>
+                                <tr>
+                                    <td>Exo Tax</td>
+                                    <td>$2</td>
+                                </tr>
+                                <tr class="shipping-cost">
+                                    <td>Shipping Cost</td>
+                                    <td>Free</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td><span>$61</span></td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-    </section>
-    <section id="do_action">
-        <div class="container">
-            <div class="heading">
-                <h3>What would you like to do next?</h3>
-                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-            </div>
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="chose_area">
-                        <ul class="user_option">
-                            <li>
-                                <input type="checkbox">
-                                <label>Use Coupon Code</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Use Gift Voucher</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Estimate Shipping & Taxes</label>
-                            </li>
-                        </ul>
-                        <ul class="user_info">
-                            <li class="single_field">
-                                <label>Country:</label>
-                                <select>
-                                    <option>United States</option>
-                                    <option>Bangladesh</option>
-                                    <option>UK</option>
-                                    <option>India</option>
-                                    <option>Pakistan</option>
-                                    <option>Ucrane</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
 
-                            </li>
-                            <li class="single_field">
-                                <label>Region / State:</label>
-                                <select>
-                                    <option>Select</option>
-                                    <option>Dhaka</option>
-                                    <option>London</option>
-                                    <option>Dillih</option>
-                                    <option>Lahore</option>
-                                    <option>Alaska</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field zip-field">
-                                <label>Zip Code:</label>
-                                <input type="text">
-                            </li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Get Quotes</a>
-                        <a class="btn btn-default check_out" href="">Continue</a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="total_area">
-                        <ul>
-                            <li>Cart Sub Total <span>$59</span></li>
-                            <li>Eco Tax <span>$2</span></li>
-                            <li>Shipping Cost <span>Free</span></li>
-                            <li>Total <span>$61</span></li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="{{route('cart.checkout')}}">Check Out</a>
-                    </div>
+                    @include('order::payment.form_payment',$payments)
+                <div class="col-md-6 col-md-offset-5">
+                    <a class="btn btn-default check_out" href="{{route('cart.checkout')}}">Check Out</a>
                 </div>
             </div>
         </div>

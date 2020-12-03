@@ -40,6 +40,12 @@ Route::prefix('admin')->group(function (){
             'uses'=>'AdminCartsController@index'
         ]);
     });
+    Route::prefix('order')->group(function (){
+        Route::get('/index',[
+            'as'=>'order.index',
+            'uses'=>'AdminCartsController@index'
+        ]);
+    });
 });
 Route::prefix('carts')->group(function (){
     Route::post('/add_product/{id}',[
@@ -49,5 +55,9 @@ Route::prefix('carts')->group(function (){
     Route::get('/index',[
         'as'=>'cart.index',
         'uses'=>'CartsController@index'
+    ]);
+    Route::get('/checkout',[
+        'as'=>'cart.checkout',
+        'uses'=>'CartsController@checkout'
     ]);
 });
