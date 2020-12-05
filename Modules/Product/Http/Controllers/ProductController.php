@@ -5,9 +5,17 @@ namespace Modules\Product\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Product\Models\Product;
+use Modules\Category\Models\Category;
+use Modules\Product\Components\Recursive;
 
 class ProductController extends Controller
 {
+    private $category;
+    public function __construct(Category $category)
+    {
+        $this->category = $category;
+    }
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -23,7 +31,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product::create');
+        $htmlOption = $this->getCategory($parentId = '');
+        return view('product::add', compact('htmlOption'));
     }
 
     /**
@@ -72,8 +81,16 @@ class ProductController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function delete($id)
     {
         //
+    }
+
+    public function getCategory($parentId)
+    {
+        $data = $this->category->all();
+        $recursive = new Recursive($data);
+        $htmlOption = $recursive->categoryRecursive($parentId);
+        return $htmlOption;
     }
 }
