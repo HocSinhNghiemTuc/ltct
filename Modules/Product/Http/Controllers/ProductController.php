@@ -8,9 +8,12 @@ use Illuminate\Routing\Controller;
 use Modules\Product\Models\Product;
 use Modules\Category\Models\Category;
 use Modules\Product\Components\Recursive;
+use Modules\Product\Traits\StorageImageTrait;
+use Modules\Product\Traits\DeleteModelTrait;
 
 class ProductController extends Controller
 {
+    use StorageImageTrait, DeleteModelTrait;
     private $category;
     public function __construct(Category $category)
     {
@@ -42,7 +45,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataUpload = $this->storageTraitUpload($request, 'feature_image_path', 'product');
     }
 
     /**
