@@ -12,13 +12,13 @@ class Cart extends Model
     protected $table = 'carts';
     public function totalBill(){
         $id = $this['id'];
-        $sqlQuery = "SELECT sum(quantity*price) as value FROM carts c join cart_items i on (c.id = i.card_id) join products p on (p.id = i.product_id) where c.id = $id";
+        $sqlQuery = "SELECT sum(quantity*price) as value FROM carts c join cart_items i on (c.id = i.cart_id) join products p on (p.id = i.product_id) where c.id = $id";
         $result = DB::select(DB::raw($sqlQuery));
         return $result[0]->value;
     }
     public function products(){
         $id = $this['id'];
-        $sqlQuery = "SELECT p.id, p.name, p.price, i.quantity FROM carts c join cart_items i on (c.id = i.card_id) join products p on (p.id = i.product_id) where c.id = $id";
+        $sqlQuery = "SELECT p.id, p.name, p.price, i.quantity FROM carts c join cart_items i on (c.id = i.cart_id) join products p on (p.id = i.product_id) where c.id = $id";
         $result = DB::select(DB::raw($sqlQuery));
         return $result;
     }
@@ -35,5 +35,20 @@ class Cart extends Model
         if ($result == null)
             return 'Undefine';
         return $result[0]->payment_method_name;
+    }
+    public function checkProduct($id){
+        $cart_item = CartItem::all()->where('product_id',$id)->where('cart_id',$this['id']);
+        if (!isset($cart_item)){
+            return null;
+        }
+        $cart = null;
+        foreach ($cart_item as $caf) {
+            $cart = $caf;
+            break;
+        }
+        if (!isset($cart)){
+            return null;
+        }
+        return $cart['id'];
     }
 }

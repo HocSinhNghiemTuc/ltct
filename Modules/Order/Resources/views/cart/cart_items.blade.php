@@ -15,7 +15,7 @@
         @foreach($cart->products() as $cart_item)
             <tr>
                 <td class="cart_product">
-                    <a href=""><img src="images/cart/one.png" alt=""></a>
+                    <a href="#">Image</a>
                 </td>
                 <td class="cart_description">
                     <h4><a href="">{{$cart_item->name}}</a></h4>
@@ -26,17 +26,17 @@
                 </td>
                 <td class="cart_quantity">
                     <div class="cart_quantity_button">
-                        <a class="cart_quantity_up" href=""> + </a>
-                        <input class="cart_quantity_input" type="text" name="quantity" value="1"
+                        <a class="cart_quantity_up" href="{{route("cart.plus_product",['id'=>$cart_item->id])}}"> + </a>
+                        <input class="cart_quantity_input" type="text" name="quantity" value="{{$cart_item->quantity}}"
                                autocomplete="off" size="2">
-                        <a class="cart_quantity_down" href=""> - </a>
+                        <a class="cart_quantity_down" href="{{route("cart.minus_product",['id'=>$cart_item->id])}}"> - </a>
                     </div>
                 </td>
                 <td class="cart_total">
                     <p class="cart_total_price">${{$cart_item->price*$cart_item->quantity}}</p>
                 </td>
                 <td class="cart_delete">
-                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                    <a class="cart_quantity_delete" href="{{route("cart.delete_product",['id'=>$cart_item->id])}}"><i class="fa fa-times"></i></a>
                 </td>
             </tr>
         @endforeach

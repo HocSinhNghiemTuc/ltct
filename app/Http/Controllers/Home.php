@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Modules\Category\Models\Category;
 use Modules\Contact\Entities\Contact;
 
@@ -14,6 +15,8 @@ class Home extends Controller
 
         $categories = Category::where('parent_id', 0)->latest()->get();
 
-        return view('customer.index', compact('contacts', 'categories'));
+        $product = DB::table('products')->find(1);
+
+        return view('customer.index', compact('contacts', 'categories','product'));
     }
 }

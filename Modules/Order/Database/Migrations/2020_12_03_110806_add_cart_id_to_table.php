@@ -14,7 +14,7 @@ class AddCartIdToTable extends Migration
     public function up()
     {
         Schema::table('cart_items', function (Blueprint $table) {
-            $table->bigInteger('card_id');
+            $table->bigInteger('cart_id');
         });
     }
 
