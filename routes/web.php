@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/login', 'AdminController@loginAdmin');
+Route::get('/login', 'AdminController@loginAdmin')->name('login');
 Route::post('/login', 'AdminController@postLoginAdmin');
 Route::get('/signup', 'AdminController@signUpAdmin');
 Route::post('/signup', 'AdminController@postSignUpAdmin');

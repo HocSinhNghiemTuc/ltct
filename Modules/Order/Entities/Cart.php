@@ -16,6 +16,12 @@ class Cart extends Model
         $result = DB::select(DB::raw($sqlQuery));
         return $result[0]->value;
     }
+    public function products(){
+        $id = $this['id'];
+        $sqlQuery = "SELECT p.id, p.name, p.price, i.quantity FROM carts c join cart_items i on (c.id = i.card_id) join products p on (p.id = i.product_id) where c.id = $id";
+        $result = DB::select(DB::raw($sqlQuery));
+        return $result;
+    }
     public function state(){
         $id = $this['id'];
         $sqlQuery = "SELECT state_name FROM orderstates a join carts b on (a.id = b.state) where b.id = $id";
