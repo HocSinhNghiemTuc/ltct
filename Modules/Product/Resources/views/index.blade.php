@@ -1,4 +1,10 @@
 @extends('layouts.admin')
+@section('css')
+    <link rel="stylesheet" href="{{ asset('modules/product/index.css') }}">
+@endsection
+
+@section('js')
+@endsection
 @section('content')
     <div class="content-wrapper">
 
@@ -23,23 +29,25 @@
                             </tr>
                             </thead>
                             <tbody>
-
-                                <th scope="row">1</th>
-                                <td>Áo khoác nam</td>
-                                <td>1000000</td>
-                                <td><img src="" alt=""></td>
-                                <td>Quần áo nam</td>
+                            @foreach($products as $productItem)
+                                <tr>
+                                <th scope="row">{{$productItem->id}}</th>
+                                <td>{{$productItem->name}}</td>
+                                <td>{{$productItem->price}}</td>
+                                <td><img class="product_image_150_100" src="{{$productItem->feature_image_path}}" alt=""></td>
+                                <td>{{$productItem->category->name}}</td>
                                 <td>
                                 	<a href="" class="btn btn-default">Edit</a>
                                 	<a href="" class="btn btn-danger">Delete</a>
                                 </td>
-
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
 
                     </div>
                     <div class="col-md-12">
-                        
+                        {{$products->links()}}
                     </div>
 
                 </div>

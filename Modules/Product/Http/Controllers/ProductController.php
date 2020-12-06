@@ -13,6 +13,7 @@ use Modules\Category\Models\Category;
 use Modules\Product\Components\Recursive;
 use Modules\Product\Traits\StorageImageTrait;
 use Modules\Product\Traits\DeleteModelTrait;
+use DB;
 
 class ProductController extends Controller
 {
@@ -36,7 +37,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product::index');
+        $products = $this->product->latest()->paginate(5);
+        return view('product::index', compact('products'));
     }
 
     /**
@@ -56,38 +58,51 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $dataProductCreate = [
-            'name' => $request->name,
-            'price' => $request->price,
-            'content' => $request->contents,
-            'category_id' => $request->category_id
-        ];
-        $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
+        try {
+            DB::beginTransaction();
+            $dataProductCreate = [
+                'name' => $request->name,
+                'price' => $request->price,
+                'content' => $request->contents,
+                'category_id' => $request->category_id
+            ];
+            $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
 
-        if(!empty($dataUploadFeatureImage)) {
-            $dataProductCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
-            $dataProductCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
-        }
-        $product = $this->product->create($dataProductCreate);
-
-        // Insert data to product_images table
-        if ($request->hasFile('image_path')) {
-            foreach ($request->image_path as $fileItem) {
-                $dataProductImageDetail = $this->storageTraitUploadMutiple($fileItem, 'product');
-                $product->images()->create([
-                    'image_path' => $dataProductImageDetail['file_path'],
-                    'image_name' => $dataProductImageDetail['file_name']
-                ]);
+            if(!empty($dataUploadFeatureImage)) {
+                $dataProductCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
+                $dataProductCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
             }
-        }
+            $product = $this->product->create($dataProductCreate);
 
-        // Insert data to product_tags table
-        foreach($request->tags as $tagItem) {
-            // Insert to tags
-            $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
-            $tagIds[] = $tagInstance->id;
+            // Insert data to product_images table
+            if ($request->hasFile('image_path')) {
+                foreach ($request->image_path as $fileItem) {
+                    $dataProductImageDetail = $this->storageTraitUploadMutiple($fileItem, 'product');
+                    $product->images()->create([
+                        'image_path' => $dataProductImageDetail['file_path'],
+                        'image_name' => $dataProductImageDetail['file_name']
+                    ]);
+                }
+            }
+
+            // Insert data to product_tags table
+            if (!empty($request->tags)) {
+                foreach($request->tags as $tagItem) {
+                    // Insert to tags
+                    $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
+                    $tagIds[] = $tagInstance->id;
+                }
+            }
+            
+            $product->tags()->attach($tagIds);
+
+            DB::commit();
+            return redirect()->route('product.index');
+        } catch(\Exception $exception) {
+            DB::rollBack();
+            Log::error('Message: ' . $exception->getMessage() . " Line: " . $exception->getLine());
         }
-        $product->tags()->attach($tagIds);
+        
     }
 
     /**
