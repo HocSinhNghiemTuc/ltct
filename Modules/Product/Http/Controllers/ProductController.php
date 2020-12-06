@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Product\Models\Product;
 use Modules\Product\Models\ProductImage;
+use Modules\Product\Models\Tag;
+use Modules\Product\Models\ProductTag;
 use Modules\Category\Models\Category;
 use Modules\Product\Components\Recursive;
 use Modules\Product\Traits\StorageImageTrait;
@@ -18,11 +20,15 @@ class ProductController extends Controller
     private $category;
     private $product;
     private $productImage;
-    public function __construct(Category $category, Product $product, ProductImage $productImage)
+    private $tag;
+    private $productTag;
+    public function __construct(Category $category, Product $product, ProductImage $productImage, Tag $tag, ProductTag $productTag)
     {
         $this->category = $category;
         $this->product = $product;
         $this->productImage = $productImage;
+        $this->tag = $tag;
+        $this->productTag = $productTag;
     }
     /**
      * Display a listing of the resource.
@@ -74,6 +80,14 @@ class ProductController extends Controller
                 ]);
             }
         }
+
+        // Insert data to product_tags table
+        foreach($request->tags as $tagItem) {
+            // Insert to tags
+            $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
+            $tagIds[] = $tagInstance->id;
+        }
+        $product->tags()->attach($tagIds);
     }
 
     /**
