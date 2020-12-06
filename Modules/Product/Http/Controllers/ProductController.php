@@ -135,7 +135,53 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $dataProductUpdate = [
+                'name' => $request->name,
+                'price' => $request->price,
+                'content' => $request->contents,
+                'category_id' => $request->category_id
+            ];
+            $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
+
+            if(!empty($dataUploadFeatureImage)) {
+                $dataProductCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
+                $dataProductCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
+            }
+            $this->product->find($id)->update($dataProductUpdate);
+            $product = $this->product->find($id);
+
+            // Insert data to product_images table
+            if ($request->hasFile('image_path')) {
+                $this->productImage->where('product_id', $id)->delete();
+                foreach ($request->image_path as $fileItem) {
+                    $dataProductImageDetail = $this->storageTraitUploadMutiple($fileItem, 'product');
+                    $product->images()->create([
+                        'image_path' => $dataProductImageDetail['file_path'],
+                        'image_name' => $dataProductImageDetail['file_name']
+                    ]);
+                }
+            }
+
+            // Insert data to product_tags table
+            $tagIds = [];
+            if (!empty($request->tags)) {
+                foreach($request->tags as $tagItem) {
+                    // Insert to tags
+                    $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
+                    $tagIds[] = $tagInstance->id;
+                }
+            }
+            
+            $product->tags()->sync($tagIds);
+
+            DB::commit();
+            return redirect()->route('product.index');
+        } catch(\Exception $exception) {
+            DB::rollBack();
+            Log::error('Message: ' . $exception->getMessage() . " Line: " . $exception->getLine());
+        }
     }
 
     /**
