@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Product\Models\Product;
+use Modules\Product\Models\ProductImage;
 use Modules\Category\Models\Category;
 use Modules\Product\Components\Recursive;
 use Modules\Product\Traits\StorageImageTrait;
@@ -15,9 +16,13 @@ class ProductController extends Controller
 {
     use StorageImageTrait, DeleteModelTrait;
     private $category;
-    public function __construct(Category $category)
+    private $product;
+    private $productImage;
+    public function __construct(Category $category, Product $product, ProductImage $productImage)
     {
         $this->category = $category;
+        $this->product = $product;
+        $this->productImage = $productImage;
     }
     /**
      * Display a listing of the resource.
@@ -45,7 +50,30 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $dataUpload = $this->storageTraitUpload($request, 'feature_image_path', 'product');
+        $dataProductCreate = [
+            'name' => $request->name,
+            'price' => $request->price,
+            'content' => $request->contents,
+            'category_id' => $request->category_id
+        ];
+        $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
+
+        if(!empty($dataUploadFeatureImage)) {
+            $dataProductCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
+            $dataProductCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
+        }
+        $product = $this->product->create($dataProductCreate);
+
+        // Insert data to product_images table
+        if ($request->hasFile('image_path')) {
+            foreach ($request->image_path as $fileItem) {
+                $dataProductImageDetail = $this->storageTraitUploadMutiple($fileItem, 'product');
+                $product->images()->create([
+                    'image_path' => $dataProductImageDetail['file_path'],
+                    'image_name' => $dataProductImageDetail['file_name']
+                ]);
+            }
+        }
     }
 
     /**
