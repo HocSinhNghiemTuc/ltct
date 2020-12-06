@@ -122,7 +122,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view('product::edit');
+        $product = $this->product->find($id);
+        $htmlOption = $this->getCategory($product->category_id);
+        return view('product::edit', compact('htmlOption', 'product'));
     }
 
     /**
