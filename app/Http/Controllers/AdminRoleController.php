@@ -3,8 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Permission;
-use App\Role;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use App\Role;
+use App\Traits\DeleteModelTrait;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use PHPUnit\Exception;
+use Illuminate\Support\Facades\DB;
 
 class AdminRoleController extends Controller
 {
@@ -59,6 +67,10 @@ class AdminRoleController extends Controller
         $role->permissions()->sync($request->permission_id);
         return redirect()->route('roles.index');
     }
-
+    public function delete($id)
+    {
+        $this->role->find($id)->delete();
+        return redirect()->route('roles.index');
+    }
 
 }

@@ -49,6 +49,10 @@ Route::prefix('admin')->group(function () {
             'as' => 'roles.update',
             'uses' => 'AdminRoleController@update'
         ]);
+        Route::get('/delete/{id}', [
+            'as' => 'roles.delete',
+            'uses' => 'AdminRoleController@delete'
+        ]);
 
     });
 

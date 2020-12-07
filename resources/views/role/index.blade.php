@@ -47,8 +47,8 @@
                                     <td>
                                         <a href="{{ route('roles.edit', ['id' => $role->id]) }}"
                                            class="btn btn-default">Edit</a>
-                                        <a href=""
-                                           data-url=""
+                                        <a href="
+                                           {{ route('roles.delete', ['id' => $role->id]) }}"
                                            class="btn btn-danger action_delete">Delete</a>
 
                                     </td>
