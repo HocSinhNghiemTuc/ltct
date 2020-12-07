@@ -6,7 +6,7 @@ use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     private $user;
@@ -31,6 +31,10 @@ class AdminController extends Controller
         ], $remember)) {
             return redirect()->to('/');
         }
+        else
+        {
+            return redirect()->to('/login');
+        }
 
     }
     public function signUpAdmin()
@@ -45,5 +49,9 @@ class AdminController extends Controller
             'password' => Hash::make($request->password)
         ]);
         return redirect()->to('/login');
+    }
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/');
     }
 }

@@ -15,6 +15,7 @@ Route::get('/login', 'AdminController@loginAdmin')->name('login');
 Route::post('/login', 'AdminController@postLoginAdmin');
 Route::get('/signup', 'AdminController@signUpAdmin');
 Route::post('/signup', 'AdminController@postSignUpAdmin');
+Route::get('/logout', 'AdminController@logout');
 Route::get('/', [
     'as' => 'homepage',
     'uses' => 'Home@index'
