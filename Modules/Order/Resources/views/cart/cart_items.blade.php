@@ -1,9 +1,9 @@
 <tbody>
-{{--                    {{dd($cart->products()[0])}}--}}
 @foreach($cart->products() as $cart_item)
     <tr>
         <td class="cart_product">
-            <a href="#">Image</a>
+            <!-- <a href="">Image</a> -->
+            <img style="width:150px; height:100px; object-fit: cover" src="{{asset($cart_item->feature_image_path)}}" alt="">
         </td>
         <td class="cart_description">
             <h4><a href="">{{$cart_item->name}}</a></h4>

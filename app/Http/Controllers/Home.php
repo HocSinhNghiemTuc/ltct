@@ -18,6 +18,6 @@ class Home extends Controller
 
         $products = Product::all();
 
-        return view('customer.index', compact('contacts', 'categories','products'));
+        return view('customer.index', compact('contacts', 'categories', 'products'));
     }
 }
