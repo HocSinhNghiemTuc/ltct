@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,15 +254,15 @@
                                     <img src="{{asset("eshopper/images/home/product6.jpg")}}" alt=""/>
                                     <h2>${{$product->price}}</h2>
                                     <p>TEST: {{$product->name}}</p>
-                                    <a href="#" data-value="{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
-                                        to cart</a>
+                                    <button data-value="{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+                                        to cart</button>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
                                         <h2>${{$product->price}}</h2>
                                         <p>TEST: {{$product->name}}</p>
-                                        <a href="#" data-value="{{$product->id}}" class="btn btn-default add-to-cart"><i
-                                                class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <button data-value="{{$product->id}}" class="btn btn-default add-to-cart"><i
+                                                class="fa fa-shopping-cart"></i>Add to cart</button>
                                     </div>
                                 </div>
                             </div>

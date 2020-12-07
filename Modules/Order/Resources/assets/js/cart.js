@@ -11,7 +11,7 @@ $(document).ready(function () {
                 if(data['status'] === '200'){
                     alert("Added to Cart");
                 }else{
-                    window.location.href = '/home';
+                    window.location.href = '/login';
                 }
             }
         });

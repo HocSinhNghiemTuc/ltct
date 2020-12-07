@@ -29,12 +29,12 @@
                 <td class="cart_quantity">
                     <div class="cart_quantity_button">
                         @if (Route::current()->getName() != 'cart.checkout')
-                            <a class="cart_quantity_up" data-value="{{$cart_item->id}}" href="#"> + </a>
+                            <button class="cart_quantity_up" data-value="{{$cart_item->id}}"> + </button>
                         @endif
                         <input class="cart_quantity_input cart_quantity_input_{{$cart_item->id}}" type="text" name="quantity" disabled value="{{$cart_item->quantity}}"
                                autocomplete="off" size="2">
                         @if (Route::current()->getName() != 'cart.checkout')
-                            <a class="cart_quantity_down" data-value="{{$cart_item->id}}" href="#"> - </a>
+                            <button class="cart_quantity_down" data-value="{{$cart_item->id}}"> - </button>
                         @endif
                     </div>
                 </td>
