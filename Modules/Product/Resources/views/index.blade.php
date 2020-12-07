@@ -4,6 +4,8 @@
 @endsection
 
 @section('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ asset('modules/product/index.js') }}"></script>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -38,7 +40,7 @@
                                 <td>{{optional($productItem->category)->name}}</td>
                                 <td>
                                 	<a href="{{route('product.edit', ['id' => $productItem->id])}}" class="btn btn-default">Edit</a>
-                                	<a href="" class="btn btn-danger">Delete</a>
+                                	<a href="{{route('product.delete', ['id' => $productItem->id])}}" data-url="{{route('product.delete', ['id' => $productItem->id])}}"  class="btn btn-danger action_delete">Delete</a>
                                 </td>
                                 </tr>
                             @endforeach
@@ -47,7 +49,7 @@
 
                     </div>
                     <div class="col-md-12">
-                        {{$products->links()}}
+                        {{$products->appends($_GET)->links()}}
                     </div>
 
                 </div>
