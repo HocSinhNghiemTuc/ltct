@@ -81,7 +81,7 @@
 
                             <div class="form-group">
                                 <label for="">Nhập tags cho sản phẩm</label>
-                                <select name="tags[]" class="form-control tags_select_choose @error('content') is-invalid @enderror" multiple="multiple">
+                                <select name="tags[]" class="form-control tags_select_choose" multiple="multiple">
                                   
                                 </select>
                             </div>
@@ -90,10 +90,10 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="">Nhập nội dung</label>
-                            <textarea name="contents" class="form-control tinymce_editor_init" rows="8">
-                                {{old('content')}}
+                            <textarea name="contents" class="form-control tinymce_editor_init @error('content') is-invalid @enderror" rows="8">
+                                {{old('contents')}}
                             </textarea>
-                            @error('content')
+                            @error('contents')
                                 <div class="alert alert-danger">{{$message}}</div>
                             @enderror
                         </div>

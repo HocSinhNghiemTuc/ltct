@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Cart extends Model
 {
-    protected $fillable = ['id','user_id','state','create_at'];
+    protected $fillable = ['id','user_id','state','create_at', 'feature_image_path'];
     protected $table = 'carts';
     public function totalBill(){
         $id = $this['id'];
@@ -18,7 +18,7 @@ class Cart extends Model
     }
     public function products(){
         $id = $this['id'];
-        $sqlQuery = "SELECT p.id, p.name, p.price, i.quantity FROM carts c join cart_items i on (c.id = i.cart_id) join products p on (p.id = i.product_id) where c.id = $id";
+        $sqlQuery = "SELECT p.feature_image_path, p.id, p.name, p.price, i.quantity FROM carts c join cart_items i on (c.id = i.cart_id) join products p on (p.id = i.product_id) where c.id = $id";
         $result = DB::select(DB::raw($sqlQuery));
         return $result;
     }
