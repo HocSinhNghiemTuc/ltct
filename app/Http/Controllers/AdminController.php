@@ -50,6 +50,7 @@ class AdminController extends Controller
         ]);
         return redirect()->to('/login');
     }
+
     public function logout(Request $request) {
         Auth::logout();
         return redirect('/');
