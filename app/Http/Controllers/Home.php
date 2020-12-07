@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Modules\Category\Models\Category;
 use Modules\Contact\Entities\Contact;
+use Modules\Product\Models\Product;
 
 class Home extends Controller
 {
@@ -15,8 +16,8 @@ class Home extends Controller
 
         $categories = Category::where('parent_id', 0)->latest()->get();
 
-        $product = DB::table('products')->find(1);
+        $products = Product::all();
 
-        return view('customer.index', compact('contacts', 'categories','product'));
+        return view('customer.index', compact('contacts', 'categories','products'));
     }
 }
