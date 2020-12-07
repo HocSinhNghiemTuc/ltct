@@ -68,4 +68,8 @@ Route::prefix('carts')->group(function (){
         'as'=>'cart.checkout',
         'uses'=>'CartsController@checkout'
     ]);
+    Route::post('/end_checkout',[
+        'as'=>'cart.end_checkout',
+        'uses'=>'CartsController@end_checkout'
+    ]);
 });

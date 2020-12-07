@@ -11,7 +11,25 @@
                     <li class="active">Shopping Cart</li>
                 </ol>
             </div>
-            @include('order::cart.cart_items',$cart)
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description"></td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        @if (Route::current()->getName() != 'cart.checkout')
+                            <td></td>
+                        @endif
+                    </tr>
+                    </thead>
+                    @if ($cart != null)
+                        @include('order::cart.cart_items',$cart)
+                    @endif
+                </table>
+            </div>
         </div>
     </section>
     <section id="do_action">
@@ -79,13 +97,14 @@
                 <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>Cart Sub Total <span class="cart_total_all">${{$cart->totalBill()}}</span></li>
+                            <li>Cart Sub Total <span class="cart_total_all">${{$cart != null ? $cart->totalBill(): ""}}</span></li>
                             <li>Eco Tax <span>$2</span></li>
                             <li>Shipping Cost <span>Free</span></li>
                             <li>Total <span>$61</span></li>
                         </ul>
                         <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="{{route('cart.checkout')}}" {{$cart->products() == null ? "disabled": ""}}>Check Out</a>
+                        <a class="btn btn-default check_out"
+                           href="{{route('cart.checkout')}}">Check Out</a>
                     </div>
                 </div>
             </div>

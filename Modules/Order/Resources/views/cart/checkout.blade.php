@@ -3,6 +3,7 @@
     <script type="text/javascript" src="{{ asset('modules/order/js/checkout.js') }}"></script>
 @endsection
 @section('content')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
@@ -42,13 +43,29 @@
             <div class="review-payment">
                 <h2>Review</h2>
             </div>
-
-            @include('order::cart.cart_items',$cart)
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description"></td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        @if (Route::current()->getName() != 'cart.checkout')
+                            <td></td>
+                        @endif
+                    </tr>
+                    </thead>
+                    @if ($cart != null)
+                        @include('order::cart.cart_items',$cart)
+                    @endif
+                </table>
+            </div>
             <div class="row">
-
-                    @include('order::payment.form_payment',$payments)
+                @include('order::payment.form_payment',$payments)
                 <div class="col-md-6 col-md-offset-5">
-                    <a class="btn btn-default check_out" href="{{route('cart.checkout')}}">Check Out</a>
+                    <button class="btn btn-primary end_checkout">Check Out</button>
                 </div>
             </div>
         </div>

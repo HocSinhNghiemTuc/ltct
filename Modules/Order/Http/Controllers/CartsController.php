@@ -18,7 +18,12 @@ class CartsController extends Controller
         if (Auth::user() == null)
             return redirect()->route('login');
         $contacts = Contact::all()->where('status', true);
-        $cart = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1)[0];
+        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
+        $cart = null;
+        foreach ($tmp as $caf) {
+            $cart = $caf;
+            break;
+        }
         return view('order::cart.index', compact('contacts', 'cart'));
     }
 
@@ -26,14 +31,23 @@ class CartsController extends Controller
     {
         if (Auth::user() == null)
             return response()->json(['status'=>'404']);
-        $cart = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
+        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
+        $cart = null;
+        foreach ($tmp as $caf) {
+            $cart = $caf;
+            break;
+        }
         if ($cart == null) {
-            Cart::create([
+            $cart = Cart::create([
                 'user_id' => Auth::user()->id,
-                'state' => 0,
+                'state' => 1
+            ]);
+            CartItem::create([
+                'cart_id' => $cart['id'],
+                'product_id' => $request['id'],
+                'quantity' => 1
             ]);
         } else {
-            $cart = $cart[0];
             $cart_item_id = $cart->checkProduct($request['id']);
             if ($cart_item_id == null) {
                 CartItem::create([
@@ -47,6 +61,24 @@ class CartsController extends Controller
                 $cart_item->save();
             }
         }
+        return response()->json(['status'=>'200']);
+    }
+
+    public function end_checkout(Request $request){
+        if (Auth::user() == null)
+            return response()->json(['status'=>'404']);
+        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
+        $cart = null;
+        foreach ($tmp as $caf) {
+            $cart = $caf;
+            break;
+        }
+        if ($cart == null){
+            return response()->json(['status'=>'302']);
+        }
+        $cart['state'] = 2;
+        $cart['payment_id'] = $request['id'];
+        $cart->save();
         return response()->json(['status'=>'200']);
     }
 
@@ -74,8 +106,12 @@ class CartsController extends Controller
     {
         if (Auth::user() == null)
             return redirect()->route('login');
-        $cart = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
-        $cart = $cart[0];
+        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
+        $cart = null;
+        foreach ($tmp as $caf) {
+            $cart = $caf;
+            break;
+        }
         $cart_item_id = $cart->checkProduct($request['id']);
         $cart_item = CartItem::find($cart_item_id);
         $cart_item->delete();
@@ -88,7 +124,15 @@ class CartsController extends Controller
             return redirect()->route('login');
         $contacts = Contact::all()->where('status', true);
         $payments = Payment::all()->where('state', true);
-        $cart = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1)[0];
+        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
+        $cart = null;
+        foreach ($tmp as $caf) {
+            $cart = $caf;
+            break;
+        }
+        if ($cart == null){
+            return redirect()->route('cart.index');
+        }
         return view('order::cart.checkout', compact('contacts', 'payments', 'cart'));
     }
 
