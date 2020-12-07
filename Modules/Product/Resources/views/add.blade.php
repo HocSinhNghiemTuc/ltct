@@ -15,7 +15,6 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
     @include('partials.content-header', ['name' => 'Product', 'key' => 'Add'])
-
     <!-- Main content -->
         <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
         <div class="content">
@@ -30,17 +29,25 @@
                             <div class="form-group">
                                 <label for="">Tên sản phẩm</label>
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('name') is-invalid @enderror"
                                        name="name"
-                                       placeholder="Nhập tên sản phẩm">
+                                       placeholder="Nhập tên sản phẩm"
+                                       value="{{old('name')}}">
+                                @error('name')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Giá</label>
                                 <input type="number"
-                                       class="form-control"
+                                       class="form-control @error('price') is-invalid @enderror"
                                        name="price"
-                                       placeholder="Nhập giá sản phẩm">
+                                       placeholder="Nhập giá sản phẩm"
+                                       value="{{old('price')}}">
+                                @error('price')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -62,16 +69,19 @@
 
                             <div class="form-group">
                                 <label>Lựa chọn danh mục</label>
-                                <select class="form-control select2_init" name="category_id">
+                                <select class="form-control select2_init @error('category_id') is-invalid @enderror" name="category_id">
                                     <option value="">Chọn danh mục sản phẩm</option>
                                     {!! $htmlOption !!}
 
                                 </select>
+                                @error('category_id')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="">Nhập tags cho sản phẩm</label>
-                                <select name="tags[]" class="form-control tags_select_choose" multiple="multiple">
+                                <select name="tags[]" class="form-control tags_select_choose @error('content') is-invalid @enderror" multiple="multiple">
                                   
                                 </select>
                             </div>
@@ -80,7 +90,12 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="">Nhập nội dung</label>
-                            <textarea name="contents" class="form-control tinymce_editor_init" rows="8"></textarea>
+                            <textarea name="contents" class="form-control tinymce_editor_init" rows="8">
+                                {{old('content')}}
+                            </textarea>
+                            @error('content')
+                                <div class="alert alert-danger">{{$message}}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-md-12">

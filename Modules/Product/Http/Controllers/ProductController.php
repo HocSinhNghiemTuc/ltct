@@ -13,6 +13,7 @@ use Modules\Category\Models\Category;
 use Modules\Product\Components\Recursive;
 use Modules\Product\Traits\StorageImageTrait;
 use Modules\Product\Traits\DeleteModelTrait;
+use Modules\Product\Http\Requests\ProductAddRequest;
 use DB;
 
 class ProductController extends Controller
@@ -56,7 +57,7 @@ class ProductController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(ProductAddRequest $request)
     {
         try {
             DB::beginTransaction();

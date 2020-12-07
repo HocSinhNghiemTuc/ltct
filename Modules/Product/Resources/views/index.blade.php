@@ -4,7 +4,7 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ asset('modules/product/sweetalert2%4010.js')}}"></script>
     <script src="{{ asset('modules/product/index.js') }}"></script>
 @endsection
 @section('content')
