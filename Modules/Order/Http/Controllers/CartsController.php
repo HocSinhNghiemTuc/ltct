@@ -2,6 +2,7 @@
 
 namespace Modules\Order\Http\Controllers;
 
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class CartsController extends Controller
     public function plus_product(Request $request)
     {
         if (Auth::user() == null)
-            return redirect()->route('login');
+            return response()->json(['status'=>'404']);
         $cart = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
         if ($cart == null) {
             Cart::create([
@@ -46,7 +47,7 @@ class CartsController extends Controller
                 $cart_item->save();
             }
         }
-        return redirect()->route("cart.index");
+        return response()->json(['status'=>'200']);
     }
 
     public function minus_product(Request $request)
@@ -67,7 +68,7 @@ class CartsController extends Controller
             $cart_item['quantity'] -= 1;
             $cart_item->save();
         }
-        return redirect()->route("cart.index");
+//        return redirect()->route("cart.index");
     }
     public function delete_product(Request $request)
     {
@@ -78,7 +79,7 @@ class CartsController extends Controller
         $cart_item_id = $cart->checkProduct($request['id']);
         $cart_item = CartItem::find($cart_item_id);
         $cart_item->delete();
-        return redirect()->route("cart.index");
+        return redirect()->route('cart.index');
     }
 
     public function checkout()

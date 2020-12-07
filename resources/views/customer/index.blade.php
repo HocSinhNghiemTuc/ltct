@@ -35,6 +35,7 @@
 </head><!--/head-->
 
 <body>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <header id="header"><!--header-->
 
     <!-- Start Header Top -->
@@ -252,14 +253,14 @@
                                     <img src="{{asset("eshopper/images/home/product6.jpg")}}" alt=""/>
                                     <h2>${{$product->price}}</h2>
                                     <p>TEST: {{$product->name}}</p>
-                                    <a href="{{route('cart.plus_product',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+                                    <a href="#" data-value="{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
                                         to cart</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
                                         <h2>${{$product->price}}</h2>
                                         <p>TEST: {{$product->name}}</p>
-                                        <a href="{{route('cart.plus_product',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i
+                                        <a href="#" data-value="{{$product->id}}" class="btn btn-default add-to-cart"><i
                                                 class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
                                 </div>
@@ -442,5 +443,6 @@
 
 <script src="{{asset("modules/contact/js/form_feedback.js")}}"></script>
 @yield('js')
+<script type="text/javascript" src="{{ asset('modules/order/js/cart.js') }}"></script>
 </body>
 </html>

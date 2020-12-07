@@ -7,7 +7,9 @@
             <td class="price">Price</td>
             <td class="quantity">Quantity</td>
             <td class="total">Total</td>
-            <td></td>
+            @if (Route::current()->getName() != 'cart.checkout')
+                <td></td>
+            @endif
         </tr>
         </thead>
         <tbody>
@@ -22,22 +24,31 @@
                     <p>Web ID: {{$cart_item->id}}</p>
                 </td>
                 <td class="cart_price">
-                    <p>${{$cart_item->price}}</p>
+                    <p class="cart_price_{{$cart_item->id}}">${{$cart_item->price}}</p>
                 </td>
                 <td class="cart_quantity">
                     <div class="cart_quantity_button">
-                        <a class="cart_quantity_up" href="{{route("cart.plus_product",['id'=>$cart_item->id])}}"> + </a>
-                        <input class="cart_quantity_input" type="text" name="quantity" value="{{$cart_item->quantity}}"
+                        @if (Route::current()->getName() != 'cart.checkout')
+                            <a class="cart_quantity_up" data-value="{{$cart_item->id}}" href="#"> + </a>
+                        @endif
+                        <input class="cart_quantity_input cart_quantity_input_{{$cart_item->id}}" type="text" name="quantity" disabled value="{{$cart_item->quantity}}"
                                autocomplete="off" size="2">
-                        <a class="cart_quantity_down" href="{{route("cart.minus_product",['id'=>$cart_item->id])}}"> - </a>
+                        @if (Route::current()->getName() != 'cart.checkout')
+                            <a class="cart_quantity_down" data-value="{{$cart_item->id}}" href="#"> - </a>
+                        @endif
                     </div>
                 </td>
                 <td class="cart_total">
-                    <p class="cart_total_price">${{$cart_item->price*$cart_item->quantity}}</p>
+                    <p class="cart_total_price cart_total_price_{{$cart_item->id}}">${{$cart_item->price*$cart_item->quantity}}</p>
                 </td>
-                <td class="cart_delete">
-                    <a class="cart_quantity_delete" href="{{route("cart.delete_product",['id'=>$cart_item->id])}}"><i class="fa fa-times"></i></a>
-                </td>
+                @if (Route::current()->getName() != 'cart.checkout')
+                    <td class="cart_delete">
+                        <a class="cart_quantity_delete"
+                           href="{{route("cart.delete_product",['id'=>$cart_item->id])}}"><i
+                                class="fa fa-times"></i></a>
+                    </td>
+                @endif
+
             </tr>
         @endforeach
         </tbody>

@@ -1,4 +1,7 @@
 @extends('customer.order.index')
+@section('js')
+    <script type="text/javascript" src="{{ asset('modules/order/js/cart.js') }}"></script>
+@endsection
 @section('content')
     <section id="cart_items">
         <div class="container">
@@ -76,7 +79,7 @@
                 <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>Cart Sub Total <span>${{$cart->totalBill()}}</span></li>
+                            <li>Cart Sub Total <span class="cart_total_all">${{$cart->totalBill()}}</span></li>
                             <li>Eco Tax <span>$2</span></li>
                             <li>Shipping Cost <span>Free</span></li>
                             <li>Total <span>$61</span></li>

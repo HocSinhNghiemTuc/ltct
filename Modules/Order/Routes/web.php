@@ -48,7 +48,7 @@ Route::prefix('admin')->group(function (){
     });
 });
 Route::prefix('carts')->group(function (){
-    Route::get('/add_product/{id}',[
+    Route::post('/add_product/{id}',[
         'as'=>'cart.plus_product',
         'uses'=>'CartsController@plus_product'
     ]);
@@ -56,7 +56,7 @@ Route::prefix('carts')->group(function (){
         'as'=>'cart.delete_product',
         'uses'=>'CartsController@delete_product'
     ]);
-    Route::get('/minus_product/{id}',[
+    Route::post('/minus_product/{id}',[
         'as'=>'cart.minus_product',
         'uses'=>'CartsController@minus_product'
     ]);
