@@ -29,6 +29,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-8 clearfix">
                 <div class="shop-menu clearfix pull-right">
                     <ul class="nav navbar-nav">
@@ -37,8 +38,12 @@
                         <li><a href="{{asset("eshopper/checkout.html")}}"><i class="fa fa-crosshairs"></i> Checkout</a>
                         </li>
                         <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                        <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
-                        <li><a href="/signup"><i></i> SignUp</a></li>
+                        @if (Auth::check())
+                        <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
+                        @else
+                            <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="/signup"><i></i> SignUp</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
