@@ -17,7 +17,7 @@
 @section('content')
 
     <div class="content-wrapper">
-        @include('partials.content-header', ['name' => 'Role', 'key' => 'Add'])
+        @include('partials.content-header', ['name' => 'Role', 'key' => 'add'])
 
         <div class="content">
             <div class="container-fluid">

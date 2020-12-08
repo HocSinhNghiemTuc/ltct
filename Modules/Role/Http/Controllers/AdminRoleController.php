@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\Role\Http\Controllers;
 
 use App\Permission;
 use Illuminate\Contracts\Support\Renderable;
@@ -27,14 +27,14 @@ class AdminRoleController extends Controller
     public function index()
     {
         $roles = $this->role->paginate(10);
-        return view('role.index', compact('roles'));
+        return view('role::index', compact('roles'));
 
     }
 
     public function create()
     {
         $permissionsParent = $this->permission->where('parent_id', 0)->get();
-        return view('role.add', compact('permissionsParent'));
+        return view('role::add', compact('permissionsParent'));
     }
 
     public function store(Request $request)
@@ -54,7 +54,7 @@ class AdminRoleController extends Controller
         $permissionsParent = $this->permission->where('parent_id', 0)->get();
         $role = $this->role->find($id);
         $pemissionsChecked = $role->permissions;
-        return view('role.edit', compact('permissionsParent', 'role', 'pemissionsChecked'));
+        return view('role::edit', compact('permissionsParent', 'role', 'pemissionsChecked'));
     }
 
     public function update(Request $request, $id)
