@@ -22,9 +22,13 @@ Route::get('/', [
 ]);
 
 
-Route::get('/admin', function () {
-    return view('home');
-});
+
+Route::get('/admin', [
+    'as' => 'admin.home',
+    'uses' => 'AdminController@home',
+    'middleware' => 'can:admin'
+]);
+
 Route::prefix('admin')->group(function () {
 
     Route::prefix('roles')->group(function () {

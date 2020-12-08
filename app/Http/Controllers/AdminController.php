@@ -55,4 +55,10 @@ class AdminController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function home()
+    {
+        return view('home');
+    }
+
 }
