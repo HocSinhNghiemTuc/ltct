@@ -46,6 +46,7 @@ class Cart extends Model
         }
         return null;
     }
+
     public function checkProduct($id){
         $cart_item = CartItem::all()->where('product_id',$id)->where('cart_id',$this['id']);
         if (!isset($cart_item)){
