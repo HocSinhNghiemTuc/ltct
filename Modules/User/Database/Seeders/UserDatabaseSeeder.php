@@ -15,7 +15,7 @@ class UserDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->insert([
+        DB::table('role')->insert([
             ['name' => 'admin', 'display_name' => 'Quản trị hệ thống'],
             ['name' => 'guest', 'display_name' => 'Khách hàng'],
             ['name' => 'developer', 'display_name' => 'Phát triển hệ thống'],

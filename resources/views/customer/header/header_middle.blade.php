@@ -39,7 +39,8 @@
                         </li>
                         <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                         @if (Auth::check())
-                        <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
+                            <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
+                            <li><a href="/admin"><i class=""></i> For Admin</a></li>
                         @else
                             <li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
                             <li><a href="/signup"><i></i> SignUp</a></li>

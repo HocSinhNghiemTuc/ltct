@@ -37,6 +37,8 @@ Route::prefix('admin')->group(function () {
             'uses' => 'AdminUserController@delete'
         ]);
     });
+
+
 });
 
 Route::prefix('userCreate')->group(function () {
