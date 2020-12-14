@@ -1,6 +1,5 @@
 <?php
 namespace Modules\Order\Services;
-use Illuminate\Support\Facades\Auth;
 use Modules\Order\Entities\Cart;
 use Modules\Order\Entities\CartItem;
 
@@ -19,7 +18,7 @@ class CartService{
         $cart = $this->index($user_id);
         if ($cart == null) {
             $cart = Cart::create([
-                'user_id' => Auth::user()->id,
+                'user_id' => $user_id,
                 'state' => 1
             ]);
             CartItem::create([
@@ -42,5 +41,34 @@ class CartService{
             }
         }
     }
+    public function end_checkout($user_id,$payment_id){
+        $cart = $this->index($user_id);
+        if ($cart == null){
+            return false;
+        }
+        $cart['state'] = 2;
+        $cart['payment_id'] = $payment_id;
+        $cart->save();
+        return true;
+    }
 
+    public function minus_product($user_id,$product_id)
+    {
+        $cart = $this->index($user_id);
+        $cart_item_id = $cart->checkProduct($product_id);
+        $cart_item = CartItem::find($cart_item_id);
+        if ($cart_item['quantity'] == 1){
+            $cart_item->delete();
+        }else {
+            $cart_item['quantity'] -= 1;
+            $cart_item->save();
+        }
+    }
+    public function delete_product($user_id,$product_id)
+    {
+        $cart = $this->index($user_id);
+        $cart_item_id = $cart->checkProduct($product_id);
+        $cart_item = CartItem::find($cart_item_id);
+        $cart_item->delete();
+    }
 }

@@ -10,14 +10,18 @@ use Modules\Order\Entities\Cart;
 use Modules\Order\Entities\CartItem;
 use Modules\Order\Entities\Payment;
 use Modules\Order\Services\CartService;
+use Modules\Order\Services\PaymentService;
+
 //use Services\CartService;
 
 class CartsController extends Controller
 {
     protected $cartService;
-    public function __construct(CartService $cartService)
+    protected $paymentService;
+    public function __construct(CartService $cartService,PaymentService $paymentService)
     {
         $this->cartService = $cartService;
+        $this->paymentService = $paymentService;
     }
 
     public function index()
@@ -40,18 +44,9 @@ class CartsController extends Controller
     public function end_checkout(Request $request){
         if (Auth::user() == null)
             return response()->json(['status'=>'404']);
-        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
-        $cart = null;
-        foreach ($tmp as $caf) {
-            $cart = $caf;
-            break;
-        }
-        if ($cart == null){
+        if (!$this->cartService->end_checkout(Auth::user()->id,$request['id'])){
             return response()->json(['status'=>'302']);
         }
-        $cart['state'] = 2;
-        $cart['payment_id'] = $request['id'];
-        $cart->save();
         return response()->json(['status'=>'200']);
     }
 
@@ -59,35 +54,13 @@ class CartsController extends Controller
     {
         if (Auth::user() == null)
             return redirect()->route('login');
-        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
-        $cart = null;
-        foreach ($tmp as $caf) {
-            $cart = $caf;
-            break;
-        }
-        $cart_item_id = $cart->checkProduct($request['id']);
-        $cart_item = CartItem::find($cart_item_id);
-        if ($cart_item['quantity'] == 1){
-            $cart_item->delete();
-        }else {
-            $cart_item['quantity'] -= 1;
-            $cart_item->save();
-        }
-//        return redirect()->route("cart.index");
+        $this->cartService->minus_product(Auth::user()->id,$request['id']);
     }
     public function delete_product(Request $request)
     {
         if (Auth::user() == null)
             return redirect()->route('login');
-        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
-        $cart = null;
-        foreach ($tmp as $caf) {
-            $cart = $caf;
-            break;
-        }
-        $cart_item_id = $cart->checkProduct($request['id']);
-        $cart_item = CartItem::find($cart_item_id);
-        $cart_item->delete();
+        $this->cartService->delete_product(Auth::user()->id,$request['id']);
         return redirect()->route('cart.index');
     }
 
@@ -96,22 +69,11 @@ class CartsController extends Controller
         if (Auth::user() == null)
             return redirect()->route('login');
         $contacts = Contact::all()->where('status', true);
-        $payments = Payment::all()->where('state', true);
-        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
-        $cart = null;
-        foreach ($tmp as $caf) {
-            $cart = $caf;
-            break;
-        }
+        $payments = $this->paymentService->index();
+        $cart = $this->cartService->index(Auth::user()->id);
         if ($cart == null){
             return redirect()->route('cart.index');
         }
         return view('order::cart.checkout', compact('contacts', 'payments', 'cart'));
-    }
-
-    public function check_signed_in()
-    {
-        if (Auth::user() == null)
-            return redirect()->route('login');
     }
 }

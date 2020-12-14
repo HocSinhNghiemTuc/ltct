@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->app->bind('Modules\Order\Services\CartService');
+//        $this->app->bind('Modules\Order\Services\CartService');
     }
 
     /**

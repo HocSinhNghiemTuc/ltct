@@ -14,7 +14,10 @@ class Cart extends Model
         $id = $this['id'];
         $sqlQuery = "SELECT sum(quantity*price) as value FROM carts c join cart_items i on (c.id = i.cart_id) join products p on (p.id = i.product_id) where c.id = $id";
         $result = DB::select(DB::raw($sqlQuery));
-        return $result[0]->value;
+        foreach ($result as $tmp){
+            return $tmp->value;
+        }
+        return null;
     }
     public function products(){
         $id = $this['id'];
@@ -26,7 +29,10 @@ class Cart extends Model
         $id = $this['id'];
         $sqlQuery = "SELECT state_name FROM orderstates a join carts b on (a.id = b.state) where b.id = $id";
         $result = DB::select(DB::raw($sqlQuery));
-        return $result[0]->state_name;
+        foreach ($result as $tmp){
+            return $tmp->state_name;
+        }
+        return null;
     }
     public function paymentName(){
         $id = $this['id'];
@@ -34,7 +40,11 @@ class Cart extends Model
         $result = DB::select(DB::raw($sqlQuery));
         if ($result == null)
             return 'Undefine';
-        return $result[0]->payment_method_name;
+
+        foreach ($result as $tmp){
+            return $tmp->payment_method_name;
+        }
+        return null;
     }
     public function checkProduct($id){
         $cart_item = CartItem::all()->where('product_id',$id)->where('cart_id',$this['id']);
