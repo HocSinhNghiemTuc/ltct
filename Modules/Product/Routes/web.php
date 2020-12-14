@@ -32,7 +32,7 @@ Route::prefix('admin')->group(function () {
             'uses' => 'ProductController@edit'
         ]);
 
-        Route::post('/update/{id}', [ 
+        Route::post('/update/{id}', [
             'as' => 'product.update',
             'uses' => 'ProductController@update'
         ]);

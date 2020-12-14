@@ -14,7 +14,6 @@ use Modules\Product\Components\Recursive;
 use Modules\Product\Traits\StorageImageTrait;
 use Modules\Product\Traits\DeleteModelTrait;
 use Modules\Product\Http\Requests\ProductAddRequest;
-use DB;
 
 class ProductController extends Controller
 {
@@ -94,7 +93,7 @@ class ProductController extends Controller
                     $tagIds[] = $tagInstance->id;
                 }
             }
-            
+
             $product->tags()->attach($tagIds);
 
             DB::commit();
@@ -103,7 +102,7 @@ class ProductController extends Controller
             DB::rollBack();
             Log::error('Message: ' . $exception->getMessage() . " Line: " . $exception->getLine());
         }
-        
+
     }
 
     /**
@@ -174,7 +173,7 @@ class ProductController extends Controller
                     $tagIds[] = $tagInstance->id;
                 }
             }
-            
+
             $product->tags()->sync($tagIds);
 
             DB::commit();

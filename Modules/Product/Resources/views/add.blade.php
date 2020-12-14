@@ -6,8 +6,8 @@
 @endsection
 
 @section('css')
-<link href="{{asset('vendors/select2/select2.min.css')}}" rel="stylesheet" />
-<link rel="stylesheet" href="{{asset('modules/product/add.css')}}">
+    <link href="{{asset('vendors/select2/select2.min.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{asset('modules/product/add.css')}}">
 @endsection
 
 @section('content')
@@ -17,13 +17,13 @@
     @include('partials.content-header', ['name' => 'Product', 'key' => 'Add'])
     <!-- Main content -->
         <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
-        <div class="content">
-            <div class="container-fluid">
+            <div class="content">
+                <div class="container-fluid">
 
-                <div class="row">
+                    <div class="row">
 
-                    <div class="col-md-6">
-                        
+                        <div class="col-md-6">
+
                             @csrf
 
                             <div class="form-group">
@@ -69,7 +69,8 @@
 
                             <div class="form-group">
                                 <label>Lựa chọn danh mục</label>
-                                <select class="form-control select2_init @error('category_id') is-invalid @enderror" name="category_id">
+                                <select class="form-control select2_init @error('category_id') is-invalid @enderror"
+                                        name="category_id">
                                     <option value="">Chọn danh mục sản phẩm</option>
                                     {!! $htmlOption !!}
 
@@ -81,40 +82,42 @@
 
                             <div class="form-group">
                                 <label for="">Nhập tags cho sản phẩm</label>
-                                <select name="tags[]" class="form-control tags_select_choose @error('content') is-invalid @enderror" multiple="multiple">
-                                  
+                                <select name="tags[]"
+                                        class="form-control tags_select_choose @error('content') is-invalid @enderror"
+                                        multiple="multiple">
+
                                 </select>
                             </div>
 
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="">Nhập nội dung</label>
-                            <textarea name="contents" class="form-control tinymce_editor_init" rows="8">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Nhập nội dung</label>
+                                <textarea name="contents" class="form-control tinymce_editor_init" rows="8">
                                 {{old('content')}}
                             </textarea>
-                            @error('content')
+                                @error('content')
                                 <div class="alert alert-danger">{{$message}}</div>
-                            @enderror
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content -->
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
         </form>
     </div>
     <!-- /.content-wrapper -->
-    
+
 
 @endsection
 
 @section('js')
-<script src="{{asset('vendors/select2/select2.min.js')}}"></script>
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-<script src="{{asset('modules/product/add.js')}}"></script>
+    <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="{{asset('modules/product/add.js')}}"></script>
 @endsection
