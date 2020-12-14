@@ -2,7 +2,6 @@
 
 namespace Modules\Order\Http\Controllers;
 
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -10,20 +9,23 @@ use Modules\Contact\Entities\Contact;
 use Modules\Order\Entities\Cart;
 use Modules\Order\Entities\CartItem;
 use Modules\Order\Entities\Payment;
+use Modules\Order\Services\CartService;
+//use Services\CartService;
 
 class CartsController extends Controller
 {
+    protected $cartService;
+    public function __construct(CartService $cartService)
+    {
+        $this->cartService = $cartService;
+    }
+
     public function index()
     {
         if (Auth::user() == null)
             return redirect()->route('login');
-        $contacts = Contact::all()->where('status', true);
-        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
-        $cart = null;
-        foreach ($tmp as $caf) {
-            $cart = $caf;
-            break;
-        }
+        $cart = $this->cartService->index(Auth::user()->id);
+        $contacts = Contact::all();
         return view('order::cart.index', compact('contacts', 'cart'));
     }
 
@@ -31,36 +33,7 @@ class CartsController extends Controller
     {
         if (Auth::user() == null)
             return response()->json(['status'=>'404']);
-        $tmp = Cart::all()->where('user_id', Auth::user()->id)->where('state', 1);
-        $cart = null;
-        foreach ($tmp as $caf) {
-            $cart = $caf;
-            break;
-        }
-        if ($cart == null) {
-            $cart = Cart::create([
-                'user_id' => Auth::user()->id,
-                'state' => 1
-            ]);
-            CartItem::create([
-                'cart_id' => $cart['id'],
-                'product_id' => $request['id'],
-                'quantity' => 1
-            ]);
-        } else {
-            $cart_item_id = $cart->checkProduct($request['id']);
-            if ($cart_item_id == null) {
-                CartItem::create([
-                    'cart_id' => $cart['id'],
-                    'product_id' => $request['id'],
-                    'quantity' => 1
-                ]);
-            } else {
-                $cart_item = CartItem::find($cart_item_id);
-                $cart_item['quantity'] += 1;
-                $cart_item->save();
-            }
-        }
+        $this->cartService->addProduct(Auth::user()->id,$request['id']);
         return response()->json(['status'=>'200']);
     }
 
