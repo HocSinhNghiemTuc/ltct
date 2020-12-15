@@ -11,6 +11,11 @@
 @section('js')
     <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
     <script src="{{ asset('admins/user/add/add.js') }}"></script>
+    <script>
+        $('.select2_init').select2({
+            'placeholder' : 'Chọn vai trò'
+        })
+    </script>
 @endsection
 
 
