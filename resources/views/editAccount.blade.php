@@ -18,12 +18,12 @@
         #login .container #login-row #login-column #login-box {
             margin-top: 120px;
             max-width: 600px;
-            height: 360px;
+            height: 370px;
             border: 1px solid #9C9C9C;
             background-color: #EAEAEA;
         }
         #login .container #login-row #login-column #login-box #login-form {
-            padding: 3px;
+            padding: 2px;
         }
         #login .container #login-row #login-column #login-box #login-form #register-link {
             margin-top: -85px;
@@ -31,42 +31,56 @@
     </style>
 </head>
 <body>
-<div id="login">
-    <h3 class="text-center text-white pt-5">Login form</h3>
+<div id="editAcc">
+    <h3 class="text-center text-white pt-5">Edit your Account </h3>
     <div class="container">
-        @if(session()->has('Fail'))
+        @if(session()->has('FailUpdate'))
             <div class="alert alert-success">
-                {{ session()->get('Fail') }}
+                {{ session()->get('FailUpdate') }}
             </div>
         @endif
-            @if(session()->has('Thanh Cong'))
+            @if(session()->has('Success'))
                 <div class="alert alert-success">
-                    {{ session()->get('Thanh Cong') }}
+                    {{ session()->get('Success') }}
                 </div>
             @endif
-
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div id="login-box" class="col-md-12">
-                    <form id="login-form" class="form" action="" method="post">
+                    <form action="{{ route('updateAcc', ['id' => $user->id]) }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <h3 class="text-center text-info">Login</h3>
                         <div class="form-group">
-                            <label for="username" class="text-info">Username:</label><br>
-                            <input type="text" name="email" id="username" class="form-control">
+                            <label>Tên</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="name"
+                                   placeholder="Nhập tên"
+                                   value="{{ $user->name }}"
+                            >
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-info">Password:</label><br>
-                            <input type="password" name="password" id="password" class="form-control">
+                            <label>Email</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="email"
+                                   placeholder="Nhập email"
+                                   value="{{ $user->email }}"
+                            >
                         </div>
                         <div class="form-group">
-                            <label for="remember-me"
-                                   class="text-info"><span>Remember me</span> <span>
-                                    <input id="remember-me" name="remember_me" type="checkbox"></span></label><br>
-                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            <label>Password</label>
+                            <input type="password"
+                                   class="form-control"
+                                   name="password"
+                                   placeholder="Nhập password"
+
+                            >
                         </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
                     </form>
-                    <a href="/signup"><button  type="SignUp" class="btn btn-info btn-md">SignUp</button></a>
+                    <br>
+                    <a href="/"> <button type="submit" class="btn btn-primary">Back to Home</button> </a>
                 </div>
             </div>
         </div>
@@ -75,7 +89,6 @@
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </body>
 </html>
 

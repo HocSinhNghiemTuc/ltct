@@ -18,12 +18,12 @@
         #login .container #login-row #login-column #login-box {
             margin-top: 120px;
             max-width: 600px;
-            height: 320px;
+            height: 370px;
             border: 1px solid #9C9C9C;
             background-color: #EAEAEA;
         }
         #login .container #login-row #login-column #login-box #login-form {
-            padding: 20px;
+            padding: 2px;
         }
         #login .container #login-row #login-column #login-box #login-form #register-link {
             margin-top: -85px;
@@ -34,6 +34,11 @@
 <div id="login">
     <h3 class="text-center text-white pt-5">SignUp form</h3>
     <div class="container">
+        @if(session()->has('FailSignUp'))
+            <div class="alert alert-success">
+                {{ session()->get('FailSignUp') }}
+            </div>
+        @endif
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div id="login-box" class="col-md-12">
@@ -68,6 +73,8 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    <br>
+                    <a href="/login"><button  type="Login" class="btn btn-primary">Login</button></a>
                 </div>
             </div>
         </div>

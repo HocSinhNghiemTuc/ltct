@@ -33,7 +33,9 @@
             <div class="col-md-8 clearfix">
                 <div class="shop-menu clearfix pull-right">
                     <ul class="nav navbar-nav">
-                        <li><a href=""><i class="fa fa-user"></i> Account</a></li>
+                        @if (Auth::check())
+                        <li><a href="{{ route('editAcc', ['id' => Auth::user()->id]) }}"><i class="fa fa-user"></i>Edit Account</a></li>
+                        @endif
                         <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
                         <li><a href="{{asset("eshopper/checkout.html")}}"><i class="fa fa-crosshairs"></i> Checkout</a>
                         </li>

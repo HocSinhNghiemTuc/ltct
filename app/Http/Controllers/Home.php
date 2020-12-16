@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Modules\Category\Models\Category;
 use Modules\Contact\Entities\Contact;
 use Modules\Product\Models\Product;
@@ -23,4 +25,6 @@ class Home extends Controller
 
         return view('customer.index', compact('contacts', 'categories', 'products', 'sliders'));
     }
+
+
 }
