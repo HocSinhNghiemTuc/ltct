@@ -18,12 +18,12 @@
         #login .container #login-row #login-column #login-box {
             margin-top: 120px;
             max-width: 600px;
-            height: 320px;
+            height: 360px;
             border: 1px solid #9C9C9C;
             background-color: #EAEAEA;
         }
         #login .container #login-row #login-column #login-box #login-form {
-            padding: 20px;
+            padding: 3px;
         }
         #login .container #login-row #login-column #login-box #login-form #register-link {
             margin-top: -85px;
@@ -34,6 +34,17 @@
 <div id="login">
     <h3 class="text-center text-white pt-5">Login form</h3>
     <div class="container">
+        @if(session()->has('Fail'))
+            <div class="alert alert-success">
+                {{ session()->get('Fail') }}
+            </div>
+        @endif
+            @if(session()->has('Thanh Cong'))
+                <div class="alert alert-success">
+                    {{ session()->get('Thanh Cong') }}
+                </div>
+            @endif
+
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div id="login-box" class="col-md-12">
@@ -54,8 +65,8 @@
                                     <input id="remember-me" name="remember_me" type="checkbox"></span></label><br>
                             <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                         </div>
-
                     </form>
+                    <a href="/signup"><button  type="SignUp" class="btn btn-info btn-md">SignUp</button></a>
                 </div>
             </div>
         </div>
@@ -64,6 +75,7 @@
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </body>
 </html>
 
