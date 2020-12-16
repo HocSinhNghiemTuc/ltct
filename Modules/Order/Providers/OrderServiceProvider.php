@@ -37,6 +37,8 @@ class OrderServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->bind('Modules\Order\Services\CartService');
+        $this->app->bind('Modules\Order\Services\PaymentService');
     }
 
     /**

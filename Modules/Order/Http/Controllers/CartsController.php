@@ -6,13 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Modules\Contact\Entities\Contact;
-use Modules\Order\Entities\Cart;
-use Modules\Order\Entities\CartItem;
-use Modules\Order\Entities\Payment;
 use Modules\Order\Services\CartService;
 use Modules\Order\Services\PaymentService;
-
-//use Services\CartService;
 
 class CartsController extends Controller
 {
@@ -23,7 +18,14 @@ class CartsController extends Controller
         $this->cartService = $cartService;
         $this->paymentService = $paymentService;
     }
-
+    public function cartHistory(Request $request){
+        if(Auth::user() == null) {
+            return redirect()->route('login');
+        }
+        $contacts = Contact::all();
+        $orders = $this->cartService->cartHistory(Auth::user()->id);
+        return view('order::cart.history',compact('orders','contacts'));
+    }
     public function index()
     {
         if (Auth::user() == null)
@@ -32,7 +34,14 @@ class CartsController extends Controller
         $contacts = Contact::all();
         return view('order::cart.index', compact('contacts', 'cart'));
     }
-
+    public function cancel(Request $request){
+        if (Auth::user() == null)
+            return response()->json(['status'=>'404']);
+        $this->cartService->cancelOrder($request['id']);
+        $contacts = Contact::all();
+        $orders = $this->cartService->cartHistory(Auth::user()->id);
+        return view('order::cart.history',compact('orders','contacts'));
+    }
     public function plus_product(Request $request)
     {
         if (Auth::user() == null)
