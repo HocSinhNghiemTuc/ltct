@@ -20,7 +20,14 @@ Route::get('/', [
     'as' => 'homepage',
     'uses' => 'Home@index'
 ]);
-
+Route::get('/accountEdit/{id}', [
+    'as' => 'editAcc',
+    'uses' => 'AdminController@editAcc'
+]);
+Route::post('/updateAcc/{id}', [
+    'as' => 'updateAcc',
+    'uses' => 'AdminController@updateAcc'
+]);
 
 
 Route::get('/admin', [

@@ -71,5 +71,34 @@ class AdminController extends Controller
     {
         return view('home');
     }
+    public function editAcc($id)
+    {
+        $user = $this->user->find($id);
+
+        return view('editAccount', compact( 'user'));
+
+    }
+
+    public function updateAcc(Request $request, $id)
+    {
+        try {
+            DB::beginTransaction();
+            $this->user->find($id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password)
+            ]);
+            $user = $this->user->find($id);
+            DB::commit();
+            $request->session()->flash('Success', 'Cập nhật thông tin thành công!');
+            return redirect()->route('editAcc', ['id' => Auth::user()->id]);
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            $request->session()->flash('FailUpdate', 'Trùng email hoặc bạn nhập sai thông tin, mời bạn nhập lại!');
+            return redirect()->route('editAcc', ['id' => Auth::user()->id]);
+
+        }
+
+    }
 
 }
