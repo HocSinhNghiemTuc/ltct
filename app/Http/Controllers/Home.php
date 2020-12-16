@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Modules\Category\Models\Category;
 use Modules\Contact\Entities\Contact;
 use Modules\Product\Models\Product;
+use Modules\Slider\Models\Slider;
 
 class Home extends Controller
 {
@@ -16,8 +17,10 @@ class Home extends Controller
 
         $categories = Category::where('parent_id', 0)->latest()->get();
 
-        $products = Product::all();
+        $products = Product::latest()->take(6)->get();
 
-        return view('customer.index', compact('contacts', 'categories', 'products'));
+        $sliders = Slider::latest()->get();
+
+        return view('customer.index', compact('contacts', 'categories', 'products', 'sliders'));
     }
 }

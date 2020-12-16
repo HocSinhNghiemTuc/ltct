@@ -5,9 +5,10 @@ namespace Modules\Product\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Category\Models\Category;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-
-class Product extends Model
+class Product extends Model implements Searchable
 {
     use SoftDeletes;
     protected $guarded = [];
@@ -28,5 +29,9 @@ class Product extends Model
 
     public function productImages() {
         return $this->hasMany(ProductImage::class, 'product_id');
+    }
+
+    public function getSearchResult(): SearchResult {
+        
     }
 }
