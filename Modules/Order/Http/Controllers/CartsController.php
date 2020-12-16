@@ -38,6 +38,9 @@ class CartsController extends Controller
         if (Auth::user() == null)
             return response()->json(['status'=>'404']);
         $this->cartService->cancelOrder($request['id']);
+        $contacts = Contact::all();
+        $orders = $this->cartService->cartHistory(Auth::user()->id);
+        return view('order::cart.history',compact('orders','contacts'));
     }
     public function plus_product(Request $request)
     {

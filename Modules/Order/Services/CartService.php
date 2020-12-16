@@ -23,7 +23,7 @@ class CartService{
     public function cancelOrder($order_id){
         $order = $this->getOrder($order_id);
         $order->state = 3;
-        $cart->save();
+        $order->save();
     }
     public function cartHistory($user_id){
         return Cart::all()->where('user_id', $user_id)->where('state', "!=",1);
