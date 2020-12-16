@@ -176,7 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+
+        Modules\Order\Providers\OrderServiceProvider::class
 
     ],
 

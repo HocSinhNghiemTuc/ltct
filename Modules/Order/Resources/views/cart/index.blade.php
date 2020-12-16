@@ -7,8 +7,9 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Shopping Cart</li>
+                    <li><a href="{{route("homepage")}}">Home</a></li>
+                    <li class="active"><a href="{{route("cart.index")}}">Shopping Cart</a></li>
+                    <li class="active"><a href="{{route("cart.history")}}">History Order</a></li>
                 </ol>
             </div>
             <div class="table-responsive cart_info">
@@ -97,14 +98,16 @@
                 <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>Cart Sub Total <span class="cart_total_all">${{$cart != null ? $cart->totalBill(): ""}}</span></li>
-                            <li>Eco Tax <span>$2</span></li>
+                            <li>Cart Sub Total <span class="cart_total_all">${{$cart != null ? $cart->totalBill(): "0"}}</span></li>
+                            <li>Eco Tax <span>Free</span></li>
                             <li>Shipping Cost <span>Free</span></li>
-                            <li>Total <span>$61</span></li>
+                            <li>Total <span class="cart_total_all">${{$cart != null ? $cart->totalBill(): "0"}}</span></li>
                         </ul>
                         <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out"
-                           href="{{route('cart.checkout')}}">Check Out</a>
+                        @if ($cart != null)
+                            <a class="btn btn-default check_out"
+                               href="{{route('cart.checkout')}}">Check Out</a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -48,6 +48,14 @@ Route::prefix('admin')->group(function (){
     });
 });
 Route::prefix('carts')->group(function (){
+    Route::get('/cancel/{id}',[
+        'as'=>'cart.cancel',
+        'uses'=>'CartsController@cancel'
+    ]);
+    Route::get('/history',[
+        'as'=>'cart.history',
+        'uses'=>'CartsController@cartHistory'
+    ]);
     Route::post('/add_product/{id}',[
         'as'=>'cart.plus_product',
         'uses'=>'CartsController@plus_product'

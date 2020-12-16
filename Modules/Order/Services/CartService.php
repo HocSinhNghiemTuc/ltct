@@ -5,6 +5,9 @@ use Modules\Order\Entities\CartItem;
 
 
 class CartService{
+    public function all(){
+       return Cart::all();
+    }
     public function index($user_id){
         $tmp = Cart::all()->where('user_id', $user_id)->where('state', 1);
         $cart = null;
@@ -13,6 +16,17 @@ class CartService{
             break;
         }
         return $cart;
+    }
+    public function getOrder($order_id){
+        return Cart::find($order_id);
+    }
+    public function cancelOrder($order_id){
+        $order = $this->getOrder($order_id);
+        $order->state = 3;
+        $cart->save();
+    }
+    public function cartHistory($user_id){
+        return Cart::all()->where('user_id', $user_id)->where('state', "!=",1);
     }
     public function addProduct($user_id,$product_id){
         $cart = $this->index($user_id);
