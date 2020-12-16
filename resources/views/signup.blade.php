@@ -71,10 +71,12 @@
 
                             >
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="row">
+                            <div class="col-md-3"><input type="submit" name="submit" class="btn btn-info btn-md" value="Submit"></div>
+                            <div class="col-md-3"><a href="/login">Login</a></div>
+                        </div>
                     </form>
                     <br>
-                    <a href="/login"><button  type="Login" class="btn btn-primary">Login</button></a>
                 </div>
             </div>
         </div>

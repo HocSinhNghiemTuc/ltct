@@ -61,12 +61,15 @@
                         </div>
                         <div class="form-group">
                             <label for="remember-me"
-                                   class="text-info"><span>Remember me</span> <span>
-                                    <input id="remember-me" name="remember_me" type="checkbox"></span></label><br>
-                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                   class="text-info"><span>
+                                    <input id="remember-me" name="remember_me" type="checkbox"></span><span> Remember me</span> </label><br>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3"><input type="submit" name="submit" class="btn btn-info btn-md" value="Submit"></div>
+                            <div class="col-md-3"><a href="/signup">Sign up</a></div>
                         </div>
                     </form>
-                    <a href="/signup"><button  type="SignUp" class="btn btn-info btn-md">SignUp</button></a>
+                    
                 </div>
             </div>
         </div>

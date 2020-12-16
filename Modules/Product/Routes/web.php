@@ -45,3 +45,8 @@ Route::prefix('admin')->group(function () {
     });
 
 });
+
+Route::get('/search', [
+    'as' => 'product.search',
+    'uses' => 'ProductController@search'
+]);

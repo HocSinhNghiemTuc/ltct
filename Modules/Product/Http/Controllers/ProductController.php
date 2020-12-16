@@ -16,6 +16,8 @@ use Modules\Product\Components\Recursive;
 use Modules\Product\Traits\StorageImageTrait;
 use Modules\Product\Traits\DeleteModelTrait;
 use Modules\Product\Http\Requests\ProductAddRequest;
+use Modules\Contact\Entities\Contact;
+use Modules\Slider\Models\Slider; 
 
 class ProductController extends Controller
 {
@@ -202,5 +204,16 @@ class ProductController extends Controller
         $recursive = new Recursive($data);
         $htmlOption = $recursive->categoryRecursive($parentId);
         return $htmlOption;
+    }
+
+    public function search(Request $request) {
+        $products = $this->product->getSearchResult($request['productSearch']);
+        $contacts = Contact::all()->where('status', true);
+
+        $categories = Category::where('parent_id', 0)->latest();
+
+        $sliders = Slider::latest()->get();
+
+        return view('customer.index', compact('contacts', 'categories', 'products', 'sliders'));
     }
 }
