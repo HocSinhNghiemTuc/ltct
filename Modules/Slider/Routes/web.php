@@ -15,32 +15,38 @@ Route::prefix('admin')->group(function () {
     Route::prefix('slider')->group(function() {
         Route::get('/', [
             'as' => 'slider.index',
-            'uses' => 'SliderAdminController@index'
+            'uses' => 'SliderAdminController@index',
+            'middleware' => 'can:admin'
         ]);
 
         Route::get('/create', [
             'as' => 'slider.create',
-            'uses' => 'SliderAdminController@create'
+            'uses' => 'SliderAdminController@create',
+            'middleware' => 'can:admin'
         ]);
 
         Route::post('/store', [
             'as' => 'slider.store',
-            'uses' => 'SliderAdminController@store'
+            'uses' => 'SliderAdminController@store',
+            'middleware' => 'can:admin'
         ]);
 
         Route::get('/edit/{id}', [
             'as' => 'slider.edit',
-            'uses' => 'SliderAdminController@edit'
+            'uses' => 'SliderAdminController@edit',
+            'middleware' => 'can:admin'
         ]);
 
         Route::post('/update/{id}', [
             'as' => 'slider.update',
-            'uses' => 'SliderAdminController@update'
+            'uses' => 'SliderAdminController@update',
+            'middleware' => 'can:admin'
         ]);
 
         Route::get('/delete/{id}', [
             'as' => 'slider.delete',
-            'uses' => 'SliderAdminController@delete'
+            'uses' => 'SliderAdminController@delete',
+            'middleware' => 'can:admin'
         ]);
     });
 });

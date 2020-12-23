@@ -15,35 +15,42 @@ Route::prefix('admin')->group(function (){
     Route::prefix('payment')->group(function (){
         Route::get('/index',[
             'as'=>'payment.index',
-            'uses'=>'AdminPaymentsController@index'
+            'uses'=>'AdminPaymentsController@index',
+            'middleware' => 'can:admin'
         ]);
         Route::post('/update/{id}',[
             'as'=>'payment.update',
-            'uses'=>'AdminPaymentsController@update'
+            'uses'=>'AdminPaymentsController@update',
+            'middleware' => 'can:admin'
         ]);
         Route::post('/create',[
             'as'=>'payment.create',
-            'uses'=>'AdminPaymentsController@create'
+            'uses'=>'AdminPaymentsController@create',
+            'middleware' => 'can:admin'
         ]);
         Route::delete('/delete/{id}',[
             'as'=>'payment.delete',
-            'uses'=>'AdminPaymentsController@delete'
+            'uses'=>'AdminPaymentsController@delete',
+            'middleware' => 'can:admin'
         ]);
         Route::post('/state/{id}',[
             'as'=>'payment.state',
-            'uses'=>'AdminPaymentsController@state'
+            'uses'=>'AdminPaymentsController@state',
+            'middleware' => 'can:admin'
         ]);
     });
     Route::prefix('carts')->group(function (){
         Route::get('/index',[
             'as'=>'admin_cart.index',
-            'uses'=>'AdminCartsController@index'
+            'uses'=>'AdminCartsController@index',
+            'middleware' => 'can:admin'
         ]);
     });
     Route::prefix('order')->group(function (){
         Route::get('/index',[
             'as'=>'order.index',
-            'uses'=>'AdminCartsController@index'
+            'uses'=>'AdminCartsController@index',
+            'middleware' => 'can:admin'
         ]);
     });
 });
