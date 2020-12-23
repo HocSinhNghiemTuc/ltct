@@ -36,9 +36,7 @@
                         @if (Auth::check())
                         <li><a href="{{ route('editAcc', ['id' => Auth::user()->id]) }}"><i class="fa fa-user"></i>Edit Account</a></li>
                         @endif
-                        <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                        <li><a href="{{asset("eshopper/checkout.html")}}"><i class="fa fa-crosshairs"></i> Checkout</a>
-                        </li>
+
                         <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                         @if (Auth::check())
                             <li><a href="/logout"><i class="fa fa-lock"></i> Logout</a></li>
