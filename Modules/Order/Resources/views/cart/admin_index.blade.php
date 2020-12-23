@@ -28,7 +28,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">CardID</th>
+                        <th scope="col">CartID</th>
                         <th scope="col">UserID</th>
                         <th scope="col">Payment Name</th>
                         <th scope="col">Total Bill<th>

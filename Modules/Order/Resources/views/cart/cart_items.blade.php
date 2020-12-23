@@ -19,7 +19,7 @@
                 <input class="cart_quantity_input cart_quantity_input_{{$cart_item->id}}" type="text" name="quantity"
                        disabled value="{{$cart_item->quantity}}"
                        autocomplete="off" size="2">
-                @if (Route::current()->getName() == 'cart.indext')
+                @if (Route::current()->getName() == 'cart.index')
                     <button class="cart_quantity_down" data-value="{{$cart_item->id}}"> -</button>
                 @endif
             </div>

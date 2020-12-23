@@ -91,8 +91,8 @@
                                 <input type="text">
                             </li>
                         </ul>
-                        <a class="btn btn-default update" href="">Get Quotes</a>
-                        <a class="btn btn-default check_out" href="">Continue</a>
+                        <button class="btn btn-default update">Get Quotes</button>
+                        <button class="btn btn-default check_out">Continue</button>
                     </div>
                 </div>
                 <div class="col-sm-6">
