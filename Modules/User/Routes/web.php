@@ -15,26 +15,31 @@ Route::prefix('admin')->group(function () {
     Route::prefix('users')->group(function () {
         Route::get('/', [
             'as' => 'users.index',
-            'uses' => 'AdminUserController@index'
+            'uses' => 'AdminUserController@index',
+            'middleware' => 'can:admin'
         ]);
 
         Route::post('/store', [
             'as' => 'users.store',
-            'uses' => 'AdminUserController@store'
+            'uses' => 'AdminUserController@store',
+            'middleware' => 'can:admin'
         ]);
 
         Route::get('/edit/{id}', [
             'as' => 'users.edit',
-            'uses' => 'AdminUserController@edit'
+            'uses' => 'AdminUserController@edit',
+            'middleware' => 'can:admin'
         ]);
 
         Route::post('/update/{id}', [
             'as' => 'users.update',
-            'uses' => 'AdminUserController@update'
+            'uses' => 'AdminUserController@update',
+            'middleware' => 'can:admin'
         ]);
         Route::get('/delete/{id}', [
             'as' => 'users.delete',
-            'uses' => 'AdminUserController@delete'
+            'uses' => 'AdminUserController@delete',
+            'middleware' => 'can:admin'
         ]);
     });
 
@@ -44,7 +49,8 @@ Route::prefix('admin')->group(function () {
 Route::prefix('userCreate')->group(function () {
     Route::get('/', [
         'as' => 'users.create',
-        'uses' => 'AdminUserController@create'
+        'uses' => 'AdminUserController@create',
+        'middleware' => 'can:admin'
     ]);
 });
 
