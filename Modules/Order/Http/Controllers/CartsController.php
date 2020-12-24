@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Modules\Contact\Entities\Contact;
 use Modules\Order\Services\CartService;
 use Modules\Order\Services\PaymentService;
+use Modules\Product\Models\Product;
 
 class CartsController extends Controller
 {
