@@ -2,6 +2,7 @@
 namespace Modules\Order\Services;
 use Modules\Order\Entities\Cart;
 use Modules\Order\Entities\CartItem;
+use Modules\Product\Models\Product;
 
 
 class CartService{
@@ -35,18 +36,22 @@ class CartService{
                 'user_id' => $user_id,
                 'state' => 1
             ]);
+            $price = Product::find($product_id)->price;
             CartItem::create([
                 'cart_id' => $cart['id'],
                 'product_id' => $product_id,
-                'quantity' => 1
+                'quantity' => 1,
+                'price' => $price
             ]);
         } else {
             $cart_item_id = $cart->checkProduct($product_id);
+            $price = Product::find($product_id)->price;
             if ($cart_item_id == null) {
                 CartItem::create([
                     'cart_id' => $cart['id'],
                     'product_id' => $product_id,
-                    'quantity' => 1
+                    'quantity' => 1,
+                    'price' => $price
                 ]);
             } else {
                 $cart_item = CartItem::find($cart_item_id);
