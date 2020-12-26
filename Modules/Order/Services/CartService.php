@@ -45,11 +45,13 @@ class CartService{
             ]);
         } else {
             $cart_item_id = $cart->checkProduct($product_id);
+            $price = Product::find($product_id)->price;
             if ($cart_item_id == null) {
                 CartItem::create([
                     'cart_id' => $cart['id'],
                     'product_id' => $product_id,
-                    'quantity' => 1
+                    'quantity' => 1,
+                    'price' => $price
                 ]);
             } else {
                 $cart_item = CartItem::find($cart_item_id);
