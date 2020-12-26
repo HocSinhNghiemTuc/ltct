@@ -100,6 +100,36 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('slider-delete', function ($user) {
             return $user->checkPermissionAccess('delete_slider');
         });
+        Gate::define('product-list', function ($user) {
+            return $user->checkPermissionAccess('list_product');
+        });
+        Gate::define('product-add', function ($user) {
+            return $user->checkPermissionAccess('add_product');
+        });
+        Gate::define('product-edit', function ($user) {
+            return $user->checkPermissionAccess('edit_product');
+        });
+        Gate::define('product-delete', function ($user) {
+            return $user->checkPermissionAccess('delete_product');
+        });
+        Gate::define('order-list', function ($user) {
+            return $user->checkPermissionAccess('list_order');
+        });
+        Gate::define('payment-list', function ($user) {
+            return $user->checkPermissionAccess('list_payment');
+        });
+        Gate::define('payment-add', function ($user) {
+            return $user->checkPermissionAccess('add_payment');
+        });
+        Gate::define('payment-edit', function ($user) {
+            return $user->checkPermissionAccess('edit_payment');
+        });
+        Gate::define('payment-delete', function ($user) {
+            return $user->checkPermissionAccess('delete_payment');
+        });
+        Gate::define('payment-state', function ($user) {
+            return $user->checkPermissionAccess('state_payment');
+        });
 
     }
 }

@@ -16,27 +16,27 @@ Route::prefix('admin')->group(function (){
         Route::get('/index',[
             'as'=>'payment.index',
             'uses'=>'AdminPaymentsController@index',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:payment-list'
         ]);
         Route::post('/update/{id}',[
             'as'=>'payment.update',
             'uses'=>'AdminPaymentsController@update',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:payment-edit'
         ]);
         Route::post('/create',[
             'as'=>'payment.create',
             'uses'=>'AdminPaymentsController@create',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:payment-add'
         ]);
         Route::delete('/delete/{id}',[
             'as'=>'payment.delete',
             'uses'=>'AdminPaymentsController@delete',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:payment-delete'
         ]);
         Route::post('/state/{id}',[
             'as'=>'payment.state',
             'uses'=>'AdminPaymentsController@state',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:payment-state'
         ]);
     });
     Route::prefix('carts')->group(function (){
@@ -50,7 +50,7 @@ Route::prefix('admin')->group(function (){
         Route::get('/index',[
             'as'=>'order.index',
             'uses'=>'AdminCartsController@index',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:order-list'
         ]);
     });
 });

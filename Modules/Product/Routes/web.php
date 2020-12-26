@@ -16,36 +16,34 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [
             'as' => 'product.index',
             'uses' => 'ProductController@index',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:product-list'
         ]);
 
         Route::get('/create', [
             'as' => 'product.create',
             'uses' => 'ProductController@create',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:product-add'
         ]);
         Route::post('/store', [
             'as' => 'product.store',
-            'uses' => 'ProductController@store',
-            'middleware' => 'can:admin'
+            'uses' => 'ProductController@store'
         ]);
 
         Route::get('/edit/{id}', [
             'as' => 'product.edit',
             'uses' => 'ProductController@edit',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:product-edit'
         ]);
 
         Route::post('/update/{id}', [
             'as' => 'product.update',
-            'uses' => 'ProductController@update',
-            'middleware' => 'can:admin'
+            'uses' => 'ProductController@update'
         ]);
 
         Route::get('/delete/{id}', [
             'as' => 'product.delete',
             'uses' => 'ProductController@delete',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:product-delete'
         ]);
 
     });
