@@ -16,36 +16,34 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [
             'as' => 'categories.index',
             'uses' => 'CategoryController@index',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:category-list'
         ]);
 
         Route::get('/create', [
             'as' => 'categories.create',
             'uses' => 'CategoryController@create',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:category-add'
         ]);
         Route::post('/store', [
             'as' => 'categories.store',
             'uses' => 'CategoryController@store',
-            'middleware' => 'can:admin'
         ]);
 
         Route::get('/edit/{id}', [
             'as' => 'categories.edit',
             'uses' => 'CategoryController@edit',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:category-edit'
         ]);
 
         Route::post('/update/{id}', [
             'as' => 'categories.update',
-            'uses' => 'CategoryController@update',
-            'middleware' => 'can:admin'
+            'uses' => 'CategoryController@update'
         ]);
 
         Route::get('/delete/{id}', [
             'as' => 'categories.delete',
             'uses' => 'CategoryController@delete',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:category-delete'
         ]);
 
     });

@@ -43,12 +43,14 @@ class       User extends Authenticatable
     public function checkPermissionAccess($pemissionCheck)
     {
         $roles = auth()->user()->roles;
-
-            if ($roles->contains('name', $pemissionCheck) ){
+        foreach ($roles as $role) {
+            $permissions = $role->permissions;
+            if ($permissions->contains('key_code', $pemissionCheck)) {
                 return true;
             }
-           else
-                return false;
+        }
+        return false;
+
     }
 
 }

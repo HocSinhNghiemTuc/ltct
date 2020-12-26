@@ -16,30 +16,28 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [
             'as' => 'users.index',
             'uses' => 'AdminUserController@index',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:user-list'
         ]);
 
         Route::post('/store', [
             'as' => 'users.store',
-            'uses' => 'AdminUserController@store',
-            'middleware' => 'can:admin'
+            'uses' => 'AdminUserController@store'
         ]);
 
         Route::get('/edit/{id}', [
             'as' => 'users.edit',
             'uses' => 'AdminUserController@edit',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:user-edit'
         ]);
 
         Route::post('/update/{id}', [
             'as' => 'users.update',
-            'uses' => 'AdminUserController@update',
-            'middleware' => 'can:admin'
+            'uses' => 'AdminUserController@update'
         ]);
         Route::get('/delete/{id}', [
             'as' => 'users.delete',
             'uses' => 'AdminUserController@delete',
-            'middleware' => 'can:admin'
+            'middleware' => 'can:user-delete'
         ]);
     });
 
@@ -50,7 +48,7 @@ Route::prefix('userCreate')->group(function () {
     Route::get('/', [
         'as' => 'users.create',
         'uses' => 'AdminUserController@create',
-        'middleware' => 'can:admin'
+        'middleware' => 'can:user-add'
     ]);
 });
 
