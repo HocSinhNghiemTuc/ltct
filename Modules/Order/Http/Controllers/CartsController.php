@@ -54,12 +54,15 @@ class CartsController extends Controller
     public function end_checkout(Request $request){
         if (Auth::user() == null)
             return response()->json(['status'=>'404']);
-        if (!$this->cartService->end_checkout(Auth::user()->id,$request['id'])){
+        if($request->has('id'))
+            $id  = $request['id'];
+        else
+            $id = 0;
+        if (!$this->cartService->end_checkout(Auth::user()->id,$id)){
             return response()->json(['status'=>'302']);
         }
         return response()->json(['status'=>'200']);
     }
-
     public function minus_product(Request $request)
     {
         if (Auth::user() == null)

@@ -2,10 +2,10 @@
 @foreach($cart->products() as $cart_item)
     <tr>
         <td class="cart_product">
-            <img style="width:150px; height:100px; object-fit: cover" src="{{asset($cart_item->feature_image_path)}}" alt="">
+            <img style="width:150px; height:100px; object-fit: cover" src="{{\Modules\Product\Models\Product::getImagebyId($cart_item->id) == null ? "Product deteled" :asset(\Modules\Product\Models\Product::getImagebyId($cart_item->id))}}" alt="">
         </td>
         <td class="cart_description">
-            <h4><p>{{$cart_item->name}}</p></h4>
+            <h4><p>{{\Modules\Product\Models\Product::getProductName($cart_item->id)}}</p></h4>
             <p>Web ID: {{$cart_item->id}}</p>
         </td>
         <td class="cart_price">
