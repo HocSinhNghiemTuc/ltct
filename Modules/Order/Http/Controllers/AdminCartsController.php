@@ -13,4 +13,20 @@ class AdminCartsController extends Controller
         $carts = Cart::all()->where('state',"<>",1);
         return view('order::cart.admin_index', compact('carts'));
     }
+    public function cancelOrder(Request $request){
+        $id = $request['id'];
+        $cart = Cart::find($id);
+        $cart->state = 3;
+        $cart->save();
+        $carts = Cart::all()->where('state',"<>",1);
+        return view('order::cart.admin_index', compact('carts'));
+    }
+    public function completeOrder(Request $request){
+        $id = $request['id'];
+        $cart = Cart::find($id);
+        $cart->state = 4;
+        $cart->save();
+        $carts = Cart::all()->where('state',"<>",1);
+        return view('order::cart.admin_index', compact('carts'));
+    }
 }
