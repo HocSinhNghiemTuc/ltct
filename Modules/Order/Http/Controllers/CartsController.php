@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Modules\Contact\Entities\Contact;
+use Modules\Order\Entities\CartItem;
 use Modules\Order\Services\CartService;
 use Modules\Order\Services\PaymentService;
 use Modules\Product\Models\Product;
@@ -31,6 +32,7 @@ class CartsController extends Controller
     {
         if (Auth::user() == null)
             return redirect()->route('login');
+        CartItem::deleteProduct();
         $cart = $this->cartService->index(Auth::user()->id);
         $contacts = Contact::all();
         return view('order::cart.index', compact('contacts', 'cart'));

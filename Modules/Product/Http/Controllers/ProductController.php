@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Modules\Order\Entities\CartItem;
 use Modules\Product\Models\Product;
 use Modules\Product\Models\ProductImage;
 use Modules\Product\Models\Tag;
@@ -17,7 +18,7 @@ use Modules\Product\Traits\StorageImageTrait;
 use Modules\Product\Traits\DeleteModelTrait;
 use Modules\Product\Http\Requests\ProductAddRequest;
 use Modules\Contact\Entities\Contact;
-use Modules\Slider\Models\Slider; 
+use Modules\Slider\Models\Slider;
 
 class ProductController extends Controller
 {
@@ -181,6 +182,7 @@ class ProductController extends Controller
             $product->tags()->sync($tagIds);
 
             DB::commit();
+            CartItem::updatePrice();
             return redirect()->route('product.index');
         } catch(\Exception $exception) {
             DB::rollBack();

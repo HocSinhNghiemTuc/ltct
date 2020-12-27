@@ -38,7 +38,6 @@ class Product extends Model
         $sqlQuery = "SELECT feature_image_path FROM products where id = $id and deleted_at is null";
         $result = DB::select(DB::raw($sqlQuery));
         foreach ($result as $tmp){
-            dd($tmp);
             return $tmp->feature_image_path;
         }
         return null;
