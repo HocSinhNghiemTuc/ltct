@@ -38,7 +38,7 @@
                             <tbody>
 
                             @foreach($users as $user)
-                              @if($user->email != 'exampale@gmail.com')
+                              @if($user->email != 'example@gmail.com')
                                 <tr>
                                     <th scope="row">{{ $user->id }}</th>
                                     <td>{{ $user->name }}</td>
