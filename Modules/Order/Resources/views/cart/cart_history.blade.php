@@ -29,7 +29,7 @@
                             @include('order::cart.cart_items',$cart = $order)
                         </table>
                     </div>
-                    @if($order->state() != "Huy don")
+                    @if($order->state() != "Huy don" && $order->state() != "Thanh cong")
                         <button class="btn btn-danger cancel-order" style="float: right"><a href="{{route("cart.cancel",['id'=>$order->id])}}" style="color: white" onclick="return confirm('Are you sure?')">Cancel</a></button>
                     @endif
                 </div>

@@ -52,6 +52,14 @@ Route::prefix('admin')->group(function (){
             'uses'=>'AdminCartsController@index',
             'middleware' => 'can:order-list'
         ]);
+        Route::get('/cancel/{id}',[
+            'as'=>'order.cancel',
+            'uses'=>'AdminCartsController@cancelOrder',
+        ]);
+        Route::get('/complete/{id}',[
+            'as'=>'order.complete',
+            'uses'=>'AdminCartsController@completeOrder'
+        ]);
     });
 });
 Route::prefix('carts')->group(function (){

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Modules\Contact\Entities\Contact;
+use Modules\Order\Entities\CartItem;
 use Modules\Order\Services\CartService;
 use Modules\Order\Services\PaymentService;
 use Modules\Product\Models\Product;
@@ -31,6 +32,7 @@ class CartsController extends Controller
     {
         if (Auth::user() == null)
             return redirect()->route('login');
+        CartItem::deleteProduct();
         $cart = $this->cartService->index(Auth::user()->id);
         $contacts = Contact::all();
         return view('order::cart.index', compact('contacts', 'cart'));
@@ -54,12 +56,15 @@ class CartsController extends Controller
     public function end_checkout(Request $request){
         if (Auth::user() == null)
             return response()->json(['status'=>'404']);
-        if (!$this->cartService->end_checkout(Auth::user()->id,$request['id'])){
+        if($request->has('id'))
+            $id  = $request['id'];
+        else
+            $id = 0;
+        if (!$this->cartService->end_checkout(Auth::user()->id,$id)){
             return response()->json(['status'=>'302']);
         }
         return response()->json(['status'=>'200']);
     }
-
     public function minus_product(Request $request)
     {
         if (Auth::user() == null)

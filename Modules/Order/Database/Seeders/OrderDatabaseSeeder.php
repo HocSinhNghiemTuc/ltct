@@ -19,7 +19,8 @@ class OrderDatabaseSeeder extends Seeder
         DB::table('orderstates')->insert([
             ['state_name'=>'Cho thanh toan'],
             ['state_name'=>'Da thanh toan'],
-            ['state_name'=>'Huy don']
+            ['state_name'=>'Huy don'],
+            ['state_name'=>'Thanh cong']
         ]);
         // $this->call("OthersTableSeeder");
     }

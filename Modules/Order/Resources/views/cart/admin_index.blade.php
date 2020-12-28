@@ -33,6 +33,7 @@
                         <th scope="col">Payment Name</th>
                         <th scope="col">Total Bill<th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,6 +45,12 @@
                             <td>{{$cart->totalBill()}}</td>
                             <td></td>
                             <td>{{$cart->state()}}</td>
+                            <td>
+                                @if ($cart->state() == "Da thanh toan")
+                                    <a href="{{route("order.complete",["id"=> $cart->id])}}"><button class="btn btn-success">Complete</button></a>
+                                    <a href="{{route("order.cancel",["id"=> $cart->id])}}"><button class="btn btn-danger">Cancel</button></a>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
