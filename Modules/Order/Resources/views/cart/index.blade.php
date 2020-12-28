@@ -26,7 +26,7 @@
                         @endif
                     </tr>
                     </thead>
-                    @if ($cart != null)
+                    @if ($cart->isNull())
                         @include('order::cart.cart_items',$cart)
                     @endif
                 </table>
@@ -98,13 +98,13 @@
                 <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>Cart Sub Total <span class="cart_total_all">${{$cart != null ? $cart->totalBill(): "0"}}</span></li>
+                            <li>Cart Sub Total <span class="cart_total_all">${{$cart->isNull() ? $cart->totalBill(): "0"}}</span></li>
                             <li>Eco Tax <span>Free</span></li>
                             <li>Shipping Cost <span>Free</span></li>
-                            <li>Total <span class="cart_total_all">${{$cart != null ? $cart->totalBill(): "0"}}</span></li>
+                            <li>Total <span class="cart_total_all">${{$cart->isNull() ? $cart->totalBill(): "0"}}</span></li>
                         </ul>
                         <a class="btn btn-default update" href="">Update</a>
-                        @if ($cart != null)
+                        @if ($cart->isNull())
                             <a class="btn btn-default check_out"
                                href="{{route('cart.checkout')}}">Check Out</a>
                         @endif

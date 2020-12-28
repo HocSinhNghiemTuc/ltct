@@ -25,6 +25,16 @@ class Cart extends Model
         $result = DB::select(DB::raw($sqlQuery));
         return $result;
     }
+    private function countProducts(){
+        $id = $this['id'];
+        $sqlQuery = "SELECT count(product_id) as counts FROM carts c join cart_items i on (c.id = i.cart_id) where c.id = $id";
+        $result = DB::select(DB::raw($sqlQuery));
+        $kq = null;
+        foreach ($result as $tmp){
+            $kq = $tmp;
+        }
+        return $tmp->counts;
+    }
     public function state(){
         $id = $this['id'];
         $sqlQuery = "SELECT state_name FROM orderstates a join carts b on (a.id = b.state) where b.id = $id";
@@ -46,7 +56,12 @@ class Cart extends Model
         }
         return null;
     }
-
+    public function isNull(){
+       if($this->countProducts() == 0){
+           return false;
+       }
+       return true;
+    }
     public function checkProduct($id){
         $cart_item = CartItem::all()->where('product_id',$id)->where('cart_id',$this['id']);
         if (!isset($cart_item)){
