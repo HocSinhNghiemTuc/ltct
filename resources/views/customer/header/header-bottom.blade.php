@@ -13,7 +13,7 @@
                 </div>
                 <div class="mainmenu pull-left">
                     <ul class="nav navbar-nav collapse navbar-collapse">
-                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="{{route('homepage')}}" class="active">Home</a></li>
                     </ul>
                 </div>
             </div>
