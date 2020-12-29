@@ -84,5 +84,7 @@
 <script src="{{asset("modules/contact/js/form_feedback.js")}}"></script>
 @yield('js')
 <script type="text/javascript" src="{{ asset('modules/order/js/cart.js') }}"></script>
+<script type="text/javascript" src="{{ asset('modules/product/index.js') }}"></script>
+
 </body>
 </html>

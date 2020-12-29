@@ -41,3 +41,13 @@ function actionDelete(event){
 $(function () {
    $(document).on('click', '.action_delete', actionDelete);
 });
+
+$(document).ready(() => {
+  $('#searchProductButton').click(() => {
+    if ($('#searchText').val() == "") {
+      return false;
+    } else {
+      $('#searchForm').submit();
+    }
+  });
+});

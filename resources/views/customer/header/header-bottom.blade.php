@@ -19,9 +19,9 @@
             </div>
             <div class="col-sm-3">
                 <div class="pull-right">
-                    <form action="{{route('product.search')}}" method="get">
-                        <input class="search_box" name="productSearch" type="text" placeholder="Search"/>
-                        <input type="submit" value="Submit">
+                    <form action="{{route('product.search')}}" method="get" class="form-inline" id="searchForm">
+                        <input id="#searchText" class="search_box" name="productSearch" type="search" placeholder="Search"/>
+                        <input type="button" class="btn btn-outline-success" value="Search" id="searchProductButton">
                     </form>
                 </div>
             </div>
