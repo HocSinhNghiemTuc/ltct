@@ -218,4 +218,9 @@ class ProductController extends Controller
 
         return view('customer.index', compact('contacts', 'categories', 'products', 'sliders'));
     }
+
+    public function searchAdmin(Request $request) {
+        $products = $this->product->getProductSearch($request);
+        return view('product::index', compact('products'));
+    }
 }

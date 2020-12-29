@@ -46,6 +46,11 @@ Route::prefix('admin')->group(function () {
             'middleware' => 'can:product-delete'
         ]);
 
+        Route::get('/searchAdmin/', [
+            'as' => 'product.searchAdmin', 
+            'uses' => 'ProductController@searchAdmin',
+        ]);
+
     });
 
 });
