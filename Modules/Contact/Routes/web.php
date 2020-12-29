@@ -20,45 +20,37 @@ Route::prefix('admin')->group(function (){
     Route::prefix('contact')->group(function (){
         Route::get('/index',[
             'as'=>'contact.index',
-            'uses'=>'AdminContactController@index',
-            'middleware' => 'can:contact-list'
+            'uses'=>'AdminContactController@index'
         ]);
         Route::post('/update/{id}',[
             'as'=>'contact.update',
-            'uses'=>'AdminContactController@update',
-            'middleware' => 'can:contact-edit'
+            'uses'=>'AdminContactController@update'
         ]);
         Route::post('/create',[
             'as'=>'contact.create',
-            'uses'=>'AdminContactController@create',
-            'middleware' => 'can:contact-add'
+            'uses'=>'AdminContactController@create'
         ]);
         Route::delete('/delete/{id}',[
             'as'=>'contact.delete',
-            'uses'=>'AdminContactController@delete',
-            'middleware' => 'can:contact-delete'
+            'uses'=>'AdminContactController@delete'
         ]);
         Route::post('/state/{id}',[
             'as'=>'contact.state',
-            'uses'=>'AdminContactController@state',
-            'middleware' => 'can:contact-state'
+            'uses'=>'AdminContactController@state'
         ]);
         Route::post('/show/{id}',[
             'as'=>'contact.show',
-            'uses'=>'AdminContactController@show',
-            'middleware' => 'can:contact-show'
+            'uses'=>'AdminContactController@show'
         ]);
     });
     Route::prefix('feedback')->group(function (){
         Route::get('/index',[
             'as'=>'feedback.index',
-            'uses'=>'AdminFeedbackController@index',
-            'middleware' => 'can:feedback-list'
+            'uses'=>'AdminFeedbackController@index'
         ]);
         Route::post('/solved/{id}',[
             'as'=>'feedback.state',
-            'uses'=>'AdminFeedbackController@solved',
-            'middleware' => 'can:feedback-solved'
+            'uses'=>'AdminFeedbackController@solved'
         ]);
     });
 });

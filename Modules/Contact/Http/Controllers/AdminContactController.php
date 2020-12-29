@@ -2,10 +2,10 @@
 
 namespace Modules\Contact\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Contact\Entities\Contact;
+use Modules\Contact\Http\Requests\ContactRequest;
 
 class AdminContactController extends Controller
 {
@@ -13,7 +13,7 @@ class AdminContactController extends Controller
         $contacts = Contact::all();
         return view('contact::contact', compact('contacts'));
     }
-    public function create(Request $request){
+    public function create(ContactRequest $request){
         $params = array('id'=> $request['id'],
             'contact_name'=>$request['contact_name'],
             'contact_value'=> $request['contact_value'],
@@ -36,7 +36,7 @@ class AdminContactController extends Controller
         $contact = Contact::find($request['id']);
         $contact->delete();
     }
-    public function update(Request $request){
+    public function update(ContactRequest $request){
         $params = array('id'=> $request['id'],
             'contact_name'=>$request['contact_name'],
             'contact_value'=> $request['contact_value'],

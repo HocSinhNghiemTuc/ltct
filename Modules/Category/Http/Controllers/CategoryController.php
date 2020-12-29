@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Category\Models\Category;
 use Modules\Category\Components\Recursive;
-
+use Modules\Category\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -30,7 +30,7 @@ class CategoryController extends Controller
         return view('category::index', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         $this->category->create([
             'name' => $request->name,
@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
     }
 
-    public function update($id, Request $request)
+    public function update($id, CategoryRequest $request)
     {
         $this->category->find($id)->update([
             'name' => $request->name,
@@ -76,5 +76,6 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
 
     }
+
 }
 
