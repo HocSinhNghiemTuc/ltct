@@ -19,7 +19,7 @@ class Home extends Controller
 
         $categories = Category::where('parent_id', 0)->latest()->get();
 
-        $products = Product::latest()->take(6)->get();
+        $products = Product::latest()->get();
 
         $sliders = Slider::latest()->get();
 
