@@ -130,6 +130,12 @@ class ProductController extends Controller
         $product = $this->product->find($id);
         $htmlOption = $this->getCategory($product->category_id);
         return view('product::edit', compact('htmlOption', 'product'));
+
+        // Example of DB getQueryLog()
+        // DB::connection()->enableQueryLog();
+        // $product->productImages;
+        // $queries = DB::getQueryLog();
+        // dd($queries);
     }
 
     /**
@@ -151,8 +157,8 @@ class ProductController extends Controller
             $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
 
             if(!empty($dataUploadFeatureImage)) {
-                $dataProductCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
-                $dataProductCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
+                $dataProductUpdate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
+                $dataProductUpdate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
             }
             $this->product->find($id)->update($dataProductUpdate);
             $product = $this->product->find($id);
