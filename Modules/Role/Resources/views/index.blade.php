@@ -49,7 +49,7 @@
                                            class="btn btn-default">Edit</a>
                                         <a href="
                                            {{ route('roles.delete', ['id' => $role->id]) }}"
-                                           class="btn btn-danger action_delete">Delete</a>
+                                           class="btn btn-danger action_delete" onclick="return confirm('Are you sure?')">Delete</a>
 
                                     </td>
                                 </tr>

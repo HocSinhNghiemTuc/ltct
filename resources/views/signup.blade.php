@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login admin</title>
+    <title>Signup</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!------ Include the above in your HEAD tag ---------->
     <style>
@@ -54,11 +54,11 @@
                             >
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Username</label>
                             <input type="text"
                                    class="form-control"
                                    name="email"
-                                   placeholder="Nhập email"
+                                   placeholder="Nhập username"
                                    value="{{ old('email') }}"
                             >
                         </div>

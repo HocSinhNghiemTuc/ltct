@@ -40,11 +40,11 @@
                                 >
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
+                                <label>Username</label>
                                 <input type="text"
                                        class="form-control"
                                        name="email"
-                                       placeholder="Nhập email"
+                                       placeholder="Nhập username"
                                        value="{{ $user->email }}"
                                 >
                             </div>
