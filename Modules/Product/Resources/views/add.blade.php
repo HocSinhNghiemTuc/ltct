@@ -94,9 +94,9 @@
                             <div class="form-group">
                                 <label for="">Nhập nội dung</label>
                                 <textarea name="contents" class="form-control tinymce_editor_init" rows="8">
-                                {{old('content')}}
+                                {{old('contents')}}
                             </textarea>
-                                @error('content')
+                                @error('contents')
                                 <div class="alert alert-danger">{{$message}}</div>
                                 @enderror
                             </div>

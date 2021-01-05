@@ -34,6 +34,9 @@
                                        name="name"
                                        placeholder="Nhập tên sản phẩm"
                                        value="{{$product->name}}">
+                                @error('name')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -43,6 +46,9 @@
                                        name="price"
                                        placeholder="Nhập giá sản phẩm"
                                        value="{{$product->price}}">
+                                @error('price')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -83,6 +89,9 @@
                                     {!! $htmlOption !!}
 
                                 </select>
+                                @error('category_id')
+                                <div class="alert alert-danger">{{$message}}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -99,6 +108,9 @@
                         <div class="form-group">
                             <label for="">Nhập nội dung</label>
                             <textarea name="contents" class="form-control tinymce_editor_init" rows="8">{{$product->content}}</textarea>
+                            @error('contents')
+                            <div class="alert alert-danger">{{$message}}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-md-12">
