@@ -17,6 +17,7 @@ use Modules\Product\Components\Recursive;
 use Modules\Product\Traits\StorageImageTrait;
 use Modules\Product\Traits\DeleteModelTrait;
 use Modules\Product\Http\Requests\ProductAddRequest;
+use Modules\Product\Http\Requests\ProductEditRequest;
 use Modules\Contact\Entities\Contact;
 use Modules\Slider\Models\Slider;
 
@@ -144,7 +145,7 @@ class ProductController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(ProductEditRequest $request, $id)
     {
         try {
             DB::beginTransaction();
